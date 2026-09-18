@@ -1,0 +1,3381 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Взрослые — Пространство, где быть родителем это модно | Дети рядом или соло</title>
+  <meta name="description" content="Тебе 18–35 и негде тусоваться с детьми? «Взрослые» — третье место, где с детьми тусоваться это стиль: спешелти-чай, карьера, настолки и свои люди, пока дети рядом в мастерской ремёсел. Без детей тоже велкам!">
+  <meta property="og:title" content="Взрослые — Пространство, где быть родителем это модно | Дети рядом или соло">
+  <meta property="og:description" content="Тебе 18–35 и негде тусоваться с детьми? «Взрослые» — третье место, где с детьми тусоваться это стиль: спешелти-чай, карьера, настолки и свои люди, пока дети рядом в мастерской ремёсел. Без детей тоже велкам!">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Unbounded, Manrope, Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Unbounded:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. ПЕРЕМЕННЫЕ ТЕМ И БАЗОВЫЕ НАСТРОЙКИ (СОВРЕМЕННАЯ ПАЛИТРА ДЛЯ МОЛОДЁЖИ)
+       ========================================================================== */
+    :root,
+    [data-theme="light"] {
+      /* Светлая тема — чистый, свежий, современный фон */
+      --bg-body: #F8F9FC;
+      --bg-card: #FFFFFF;
+      --bg-card-secondary: #F1F4F9;
+      --bg-card-hover: #FFFFFF;
+      --bg-pill: rgba(255, 87, 51, 0.08);
+      --border-color: rgba(15, 23, 42, 0.08);
+      --border-subtle: rgba(15, 23, 42, 0.04);
+
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --text-dim: #94A3B8;
+
+      /* Энергичные современные акценты */
+      --color-terracotta: #FF5733;
+      --color-terracotta-hover: #E64522;
+      --color-terracotta-soft: rgba(255, 87, 51, 0.10);
+      --color-ochre: #F59E0B;
+      --color-ochre-soft: rgba(245, 158, 11, 0.12);
+      --color-green: #059669;
+      --color-green-light: #10B981;
+      --color-green-soft: rgba(16, 185, 129, 0.12);
+
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+      --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.06);
+      --shadow-lg: 0 20px 40px rgba(15, 23, 42, 0.08);
+
+      --radius-sm: 12px;
+      --radius-md: 18px;
+      --radius-lg: 24px;
+      --radius-pill: 9999px;
+
+      --header-bg: rgba(248, 249, 252, 0.92);
+    }
+
+    [data-theme="dark"] {
+      /* Тёмная тема — глубокий обсидиановый графит */
+      --bg-body: #0C0E14;
+      --bg-card: #151821;
+      --bg-card-secondary: #1C202C;
+      --bg-card-hover: #222736;
+      --bg-pill: rgba(255, 255, 255, 0.07);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-subtle: rgba(255, 255, 255, 0.04);
+
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --text-dim: #64748B;
+
+      --color-terracotta: #FF6B4A;
+      --color-terracotta-hover: #FF8566;
+      --color-terracotta-soft: rgba(255, 107, 74, 0.15);
+      --color-ochre: #FBBF24;
+      --color-ochre-soft: rgba(251, 191, 36, 0.14);
+      --color-green: #10B981;
+      --color-green-light: #34D399;
+      --color-green-soft: rgba(16, 185, 129, 0.16);
+
+      --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.24);
+      --shadow-md: 0 10px 28px rgba(0, 0, 0, 0.32);
+      --shadow-lg: 0 20px 42px rgba(0, 0, 0, 0.40);
+
+      --header-bg: rgba(12, 14, 20, 0.90);
+    }
+
+    /* Базовый сброс и типографика */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-body);
+      /* Стильный микро-паттерн и мягкий свет */
+      background-image: 
+        radial-gradient(circle at 1px 1px, rgba(15, 23, 42, 0.04) 1px, transparent 0),
+        radial-gradient(ellipse 60% 40% at 50% -5%, rgba(255, 87, 51, 0.10), transparent 60%),
+        radial-gradient(ellipse 50% 40% at 95% 30%, rgba(16, 185, 129, 0.09), transparent 55%),
+        radial-gradient(ellipse 60% 50% at 5% 75%, rgba(99, 102, 241, 0.08), transparent 55%);
+      background-size: 24px 24px, 100% 100%, 100% 100%, 100% 100%;
+      background-attachment: fixed;
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color 0.35s ease, color 0.3s ease;
+    }
+
+    [data-theme="dark"] body {
+      background-image: 
+        radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 0),
+        radial-gradient(ellipse 60% 40% at 50% -5%, rgba(255, 107, 74, 0.12), transparent 60%),
+        radial-gradient(ellipse 50% 40% at 95% 30%, rgba(16, 185, 129, 0.10), transparent 55%),
+        radial-gradient(ellipse 60% 50% at 5% 75%, rgba(99, 102, 241, 0.10), transparent 55%);
+    }
+
+    h1, h2, h3, .font-title {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    h4, h5, .font-sub {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, textarea, select {
+      font: inherit;
+    }
+
+    /* Сетка и контейнер */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: 70px 0;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      section {
+        padding: 95px 0;
+      }
+      .container {
+        padding: 0 32px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      section {
+        padding: 110px 0;
+      }
+    }
+
+    /* ==========================================================================
+       2. ШАПКА И НАВИГАЦИЯ
+       ========================================================================== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--header-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-color);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Unbounded', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .logo-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--color-terracotta), var(--color-ochre));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 28px;
+    }
+
+    @media (min-width: 1200px) {
+      .nav-links {
+        display: flex;
+      }
+    }
+
+    .nav-link {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      color: var(--color-terracotta);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Переключатель темы */
+    .theme-toggle-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.2s;
+    }
+
+    .theme-toggle-btn:hover {
+      transform: scale(1.05);
+      border-color: var(--color-ochre);
+    }
+
+    /* Мобильное меню */
+    .mobile-menu-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    @media (min-width: 1200px) {
+      .mobile-menu-btn {
+        display: none;
+      }
+    }
+
+    .mobile-nav-overlay {
+      position: fixed;
+      top: 73px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--bg-body);
+      padding: 24px;
+      display: none;
+      flex-direction: column;
+      gap: 18px;
+      border-bottom: 1px solid var(--border-color);
+      z-index: 999;
+      overflow-y: auto;
+    }
+
+    .mobile-nav-overlay.open {
+      display: flex;
+    }
+
+    .mobile-nav-link {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-main);
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    /* ==========================================================================
+       3. ОБЩИЕ ЭЛЕМЕНТЫ (КНОПКИ, БЕЙДЖИ, КАРТОЧКИ)
+       ========================================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius-pill);
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      border: none;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background-color: var(--color-terracotta);
+      color: #FFFFFF;
+      box-shadow: 0 4px 16px rgba(201, 106, 75, 0.3);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--color-terracotta-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201, 106, 75, 0.4);
+    }
+
+    .btn-secondary {
+      background-color: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--color-ochre);
+      transform: translateY(-2px);
+      background-color: var(--bg-card-hover);
+    }
+
+    /* Специальная кнопка скачивания сайта в PDF */
+    .btn-pdf {
+      background-color: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      padding: 10px 18px;
+      font-size: 0.88rem;
+      gap: 7px;
+    }
+
+    .btn-pdf:hover {
+      border-color: var(--color-ochre);
+      background-color: var(--bg-card-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+      color: var(--color-ochre);
+    }
+
+    .btn-hero-pdf {
+      gap: 9px;
+      border-color: var(--border-color);
+    }
+
+    .btn-hero-pdf:hover {
+      border-color: var(--color-ochre);
+      color: var(--color-ochre);
+    }
+
+    @media (max-width: 600px) {
+      .header .btn-pdf .pdf-btn-text {
+        display: none;
+      }
+      .header .btn-pdf {
+        padding: 10px;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+      }
+    }
+
+    .print-contact-summary {
+      display: none;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: var(--bg-pill);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      white-space: nowrap;
+    }
+
+    .badge-accent {
+      background: var(--color-terracotta-soft);
+      border-color: rgba(201, 106, 75, 0.3);
+      color: var(--color-terracotta);
+    }
+
+    .badge-green {
+      background: var(--color-green-soft);
+      border-color: rgba(47, 93, 80, 0.3);
+      color: var(--color-green-light);
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      border-color: rgba(224, 164, 88, 0.4);
+      box-shadow: var(--shadow-md);
+    }
+
+    .section-header {
+      margin-bottom: 48px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--color-ochre);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .section-title {
+        font-size: 2.6rem;
+      }
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 680px;
+    }
+
+    /* ==========================================================================
+       4. HERO SECTION
+       ========================================================================== */
+    .hero {
+      padding: 60px 0 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        padding: 90px 0 110px 0;
+      }
+    }
+
+    /* Фоновые декоративные пятна и градиенты (деликатные и рассеянные) */
+    .hero-glow-1 {
+      position: absolute;
+      top: -90px;
+      right: -80px;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(204, 133, 44, 0.12) 0%, rgba(204, 133, 44, 0) 70%);
+      pointer-events: none;
+      filter: blur(80px);
+      animation: floatSlow 10s ease-in-out infinite alternate;
+    }
+
+    .hero-glow-2 {
+      position: absolute;
+      bottom: -70px;
+      left: -70px;
+      width: 460px;
+      height: 460px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(194, 88, 56, 0.10) 0%, rgba(194, 88, 56, 0) 70%);
+      pointer-events: none;
+      filter: blur(80px);
+      animation: floatSlow 12s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes floatSlow {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(25px, 20px) scale(1.08); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+    }
+
+    .hero-title {
+      font-size: 3.2rem;
+      color: var(--text-main);
+      margin-bottom: 20px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 5rem;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .hero-title {
+        font-size: 6rem;
+      }
+    }
+
+    .hero-subtitle {
+      font-family: 'Manrope', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--color-ochre);
+      margin-bottom: 18px;
+      line-height: 1.35;
+    }
+
+    @media (min-width: 768px) {
+      .hero-subtitle {
+        font-size: 1.75rem;
+      }
+    }
+
+    .hero-text {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      max-width: 640px;
+      line-height: 1.65;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* ==========================================================================
+       5. ПРОБЛЕМА → РЕШЕНИЕ
+       ========================================================================== */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      align-items: center;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .compare-grid {
+        grid-template-columns: 1fr auto 1fr;
+        gap: 24px;
+      }
+    }
+
+    .compare-card {
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .compare-card.problem {
+      background: var(--bg-card);
+      border: 1px dashed var(--border-color);
+      opacity: 0.85;
+    }
+
+    .compare-card.solution {
+      background: linear-gradient(145deg, var(--bg-card), var(--bg-card-secondary));
+      border: 2px solid var(--color-terracotta);
+      position: relative;
+      box-shadow: var(--shadow-md);
+    }
+
+    .compare-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      width: fit-content;
+    }
+
+    .problem-badge {
+      background: rgba(168, 161, 150, 0.15);
+      color: var(--text-dim);
+    }
+
+    .solution-badge {
+      background: var(--color-terracotta);
+      color: #fff;
+    }
+
+    .compare-title {
+      font-size: 1.4rem;
+      margin-bottom: 14px;
+    }
+
+    .compare-text {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .compare-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--bg-card-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--color-ochre);
+      margin: 0 auto;
+    }
+
+    @media (max-width: 767px) {
+      .compare-arrow svg {
+        transform: rotate(90deg);
+      }
+    }
+
+    /* ==========================================================================
+       5.1. VIBE CHECK (ИНТЕРАКТИВНЫЙ ВЫБОР СЦЕНАРИЯ ДЛЯ ЗУМЕРОВ)
+       ========================================================================== */
+    .vibe-section {
+      background: var(--bg-card-secondary);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 65px 0;
+    }
+
+    .vibe-pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+      justify-content: center;
+    }
+
+    .vibe-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: var(--radius-pill);
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-color);
+      color: var(--text-main);
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .vibe-pill-btn:hover {
+      border-color: var(--color-ochre);
+      transform: translateY(-2px);
+    }
+
+    .vibe-pill-btn.active {
+      background: var(--color-terracotta);
+      border-color: var(--color-terracotta);
+      color: #FFFFFF;
+      box-shadow: 0 6px 20px rgba(194, 88, 56, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .vibe-display-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      position: relative;
+      overflow: hidden;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    @media (min-width: 900px) {
+      .vibe-display-box {
+        grid-template-columns: 1.2fr 1fr;
+        gap: 36px;
+        align-items: center;
+      }
+    }
+
+    .vibe-step-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .vibe-step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    .vibe-step-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--color-ochre-soft);
+      color: var(--color-ochre);
+      font-weight: 800;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .vibe-highlight-card {
+      background: var(--bg-card-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+    }
+
+    .sticker-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      background: rgba(204, 133, 44, 0.15);
+      color: var(--color-ochre);
+    }
+
+    .logo-subtag {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: var(--color-terracotta-soft);
+      color: var(--color-terracotta);
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    /* ==========================================================================
+       6. ФОРМАТ (ТАЙМЛАЙН ВЕЧЕРА)
+       ========================================================================== */
+    .timeline-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .timeline-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .timeline-container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+    }
+
+    .timeline-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .timeline-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--color-ochre);
+    }
+
+    .timeline-time {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-ochre);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .timeline-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--color-ochre-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-ochre);
+      margin-bottom: 14px;
+    }
+
+    .timeline-card-title {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .timeline-card-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       7. ТРЕКИ ДЛЯ РОДИТЕЛЕЙ (РАСКРЫВАЮЩИЕСЯ КАРТОЧКИ)
+       ========================================================================== */
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .tracks-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .track-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .track-card:hover {
+      border-color: var(--color-terracotta);
+      background: var(--bg-card-hover);
+    }
+
+    .track-card.expanded {
+      border-color: var(--color-terracotta);
+      box-shadow: var(--shadow-md);
+      background: var(--bg-card-secondary);
+    }
+
+    .track-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .track-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: var(--color-terracotta-soft);
+      color: var(--color-terracotta);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .track-header-content {
+      flex-grow: 1;
+    }
+
+    .track-title {
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+    }
+
+    .track-summary {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .track-toggle-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--bg-pill);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      transition: transform 0.3s ease, color 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .track-card.expanded .track-toggle-icon {
+      transform: rotate(180deg);
+      color: var(--color-terracotta);
+      background: var(--color-terracotta-soft);
+    }
+
+    .track-details {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
+    }
+
+    .track-card.expanded .track-details {
+      max-height: 300px;
+      opacity: 1;
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .track-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .track-list-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.92rem;
+      color: var(--text-main);
+    }
+
+    .track-list-item::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--color-ochre);
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       8. ЧТО ДЕЛАЮТ ДЕТИ (АКЦЕНТНАЯ СЕКЦИЯ ТЕАТРА НАРОДОВ)
+       ========================================================================== */
+    .kids-section {
+      background: linear-gradient(180deg, transparent 0%, var(--color-green-soft) 50%, transparent 100%);
+      border-radius: 36px;
+    }
+
+    .kids-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    @media (min-width: 480px) {
+      .kids-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .kids-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+    }
+
+    .craft-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .craft-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--color-green-light);
+    }
+
+    .craft-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--color-green-soft);
+      color: var(--color-green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    .craft-name {
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .craft-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .kids-banner {
+      background: linear-gradient(135deg, var(--color-green), #1E3F36);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: var(--shadow-md);
+    }
+
+    @media (min-width: 768px) {
+      .kids-banner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .kids-banner-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.18);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       9. ДЛЯ КОГО (КАРТОЧКИ-ПОРТРЕТЫ)
+       ========================================================================== */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 480px) {
+      .audience-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .audience-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .audience-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .audience-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--color-ochre-soft);
+      color: var(--color-ochre);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .audience-title {
+      font-size: 1.15rem;
+    }
+
+    .audience-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       10. КАК ЭТО РАБОТАЕТ (4 ПРАВИЛА)
+       ========================================================================== */
+    .rules-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .rules-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .rule-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .rule-number {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--color-terracotta-soft);
+      color: var(--color-terracotta);
+      font-family: 'Unbounded', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .rule-content h4 {
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+
+    .rule-content p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       11. РЕСУРСЫ И МЕТРИКИ (COUNT-UP)
+       ========================================================================== */
+    .res-metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    @media (min-width: 768px) {
+      .res-metrics-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+    }
+
+    .resources-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      height: 100%;
+    }
+
+    .resources-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .resource-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      background: var(--bg-card-secondary);
+      font-size: 0.95rem;
+    }
+
+    .resource-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--color-ochre);
+      flex-shrink: 0;
+    }
+
+    .metrics-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .metric-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .metric-val {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--color-terracotta);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    @media (min-width: 1200px) {
+      .metric-val {
+        font-size: 2.8rem;
+      }
+    }
+
+    .metric-label {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* ==========================================================================
+       12. КАК ЗАПУСТИТЬ (МИНИ-ПЛАН НА 4 НЕДЕЛИ)
+       ========================================================================== */
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 480px) {
+      .roadmap-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .roadmap-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+    }
+
+    .roadmap-step {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .roadmap-tag {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--color-ochre);
+    }
+
+    .roadmap-title {
+      font-size: 1.15rem;
+    }
+
+    .roadmap-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       13. CTA И ФОРМА ЗАПИСИ
+       ========================================================================== */
+    .cta-card-wrapper {
+      background: linear-gradient(145deg, var(--bg-card), var(--bg-card-secondary));
+      border: 1px solid var(--border-color);
+      border-radius: 32px;
+      padding: 36px 24px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+      .cta-card-wrapper {
+        padding: 56px 48px;
+      }
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    @media (min-width: 768px) {
+      .form-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .form-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .form-input {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      color: var(--text-main);
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      outline: none;
+    }
+
+    .form-input:focus {
+      border-color: var(--color-terracotta);
+      box-shadow: 0 0 0 3px var(--color-terracotta-soft);
+    }
+
+    /* Чекбоксы выбора трека */
+    .tracks-checkbox-group {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    @media (min-width: 480px) {
+      .tracks-checkbox-group {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .tracks-checkbox-group {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.2s, background-color 0.2s;
+    }
+
+    .checkbox-label:hover {
+      border-color: var(--color-ochre);
+    }
+
+    .checkbox-label input[type="checkbox"] {
+      accent-color: var(--color-terracotta);
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    /* Сообщение об успешной отправке */
+    .form-success-banner {
+      display: none;
+      background: var(--color-green-soft);
+      border: 1px solid var(--color-green-light);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: center;
+      margin-top: 24px;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .form-success-banner.visible {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==========================================================================
+       14. FAQ (АККОРДЕОН)
+       ========================================================================== */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 860px;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color 0.2s ease;
+    }
+
+    .faq-item:hover {
+      border-color: var(--color-ochre);
+    }
+
+    .faq-question-btn {
+      width: 100%;
+      text-align: left;
+      padding: 22px 26px;
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      font-family: 'Manrope', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+    }
+
+    .faq-chevron {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--bg-pill);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .faq-item.active .faq-chevron {
+      transform: rotate(180deg);
+      background: var(--color-terracotta-soft);
+      color: var(--color-terracotta);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.3s ease;
+      padding: 0 26px;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+      opacity: 1;
+      padding-bottom: 22px;
+    }
+
+    .faq-answer p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       15. ФУТЕР
+       ========================================================================== */
+    .footer {
+      background: var(--bg-card-secondary);
+      border-top: 1px solid var(--border-color);
+      padding: 60px 0 36px 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 36px;
+      margin-bottom: 48px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1.5fr 1fr 1fr;
+      }
+    }
+
+    .footer-brand h3 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 320px;
+    }
+
+    .footer-col h5 {
+      font-size: 1rem;
+      margin-bottom: 16px;
+      color: var(--text-main);
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-link {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .footer-link:hover {
+      color: var(--color-terracotta);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .social-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--bg-card-secondary);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-main);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .social-btn:hover {
+      border-color: var(--color-ochre);
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-bottom {
+        flex-direction: row;
+      }
+    }
+
+    /* ==========================================================================
+       16. КНОПКА «НАВЕРХ» И АНИМАЦИИ ПОЯВЛЕНИЯ
+       ========================================================================== */
+    .back-to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(16px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 990;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      background: var(--color-terracotta);
+      color: #fff;
+      border-color: var(--color-terracotta);
+      transform: translateY(-3px);
+    }
+
+    /* Плавное появление элементов через IntersectionObserver */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Кастомный красивый скроллбар */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-body);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--color-terracotta);
+    }
+
+    /* ==========================================================================
+       16. СТИЛИ ДЛЯ ВЫСОКОКАЧЕСТВЕННОЙ ПЕЧАТИ И ЭКСПОРТА ВСЕГО САЙТА В PDF
+       ========================================================================== */
+    @media print {
+      @page {
+        margin: 12mm 15mm;
+        size: A4 portrait;
+      }
+
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      body {
+        background-color: #FFFFFF !important;
+        background-image: none !important;
+        color: #1A1816 !important;
+        font-size: 13px !important;
+        line-height: 1.5 !important;
+      }
+
+      /* Скрываем интерфейсные кнопки, непригодные для распечатанного документа */
+      .header,
+      .mobile-nav-overlay,
+      .theme-toggle-btn,
+      .back-to-top,
+      .hero-buttons,
+      .hero-glow-1,
+      .hero-glow-2,
+      .mobile-menu-btn,
+      #downloadPdfBtn,
+      #heroDownloadPdfBtn,
+      .social-links,
+      #leadForm,
+      .faq-chevron,
+      .track-toggle-icon {
+        display: none !important;
+      }
+
+      /* Раскрываем все детали треков и ответы в FAQ */
+      .track-details {
+        max-height: none !important;
+        opacity: 1 !important;
+        display: block !important;
+        margin-top: 14px !important;
+        padding-top: 12px !important;
+        border-top: 1px solid #E2DCD1 !important;
+      }
+
+      .faq-answer {
+        max-height: none !important;
+        opacity: 1 !important;
+        display: block !important;
+        padding-bottom: 12px !important;
+      }
+
+      .faq-item {
+        border-color: #E2DCD1 !important;
+        margin-bottom: 12px !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      .faq-question-btn {
+        padding: 14px 18px !important;
+        color: #1A1816 !important;
+        font-weight: 700 !important;
+      }
+
+      .faq-answer p {
+        color: #4A453F !important;
+      }
+
+      /* Принудительно отображаем все секции и блоки без эффекта затухания */
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      /* Карточки для PDF с чистым фоном и аккуратной окантовкой */
+      .compare-card,
+      .timeline-card,
+      .track-card,
+      .craft-card,
+      .audience-card,
+      .rule-card,
+      .roadmap-step,
+      .resources-card,
+      .metric-box,
+      .cta-card-wrapper {
+        box-shadow: none !important;
+        background: #FAF7F2 !important;
+        border: 1px solid #DDD5C6 !important;
+        color: #1A1816 !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      .hero-title,
+      .section-title,
+      .track-title,
+      .roadmap-title,
+      .audience-title {
+        color: #1A1816 !important;
+      }
+
+      .hero-subtitle,
+      .section-tag,
+      .roadmap-tag,
+      .metric-val,
+      .rule-number {
+        color: #B85839 !important;
+      }
+
+      .text-muted,
+      .hero-text,
+      .section-desc,
+      .compare-item,
+      .track-summary,
+      .craft-desc,
+      .audience-text,
+      .rule-content p,
+      .roadmap-desc {
+        color: #4A453F !important;
+      }
+
+      .track-icon,
+      .compare-icon,
+      .audience-icon {
+        background: #F3EAE4 !important;
+        color: #B85839 !important;
+        border: 1px solid #E5D5CD !important;
+      }
+
+      /* Блок контактов для печатной копии PDF */
+      .print-contact-summary {
+        display: block !important;
+        background: #FAF7F2 !important;
+        border: 2px dashed #C96A4B !important;
+        border-radius: 16px !important;
+        padding: 24px !important;
+        margin-top: 18px !important;
+        text-align: center !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       ШАПКА (STICKY HEADER + ТЕМА + МЕНЮ)
+       ========================================================================== -->
+  <header class="header" id="header">
+    <div class="container nav-container">
+      <!-- Логотип -->
+      <a href="#hero" class="logo" aria-label="Проект Взрослые">
+        <div class="logo-badge">
+          <!-- SVG иконка молнии/сообщества -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <span>ВЗРОСЛЫЕ</span>
+        <span class="logo-subtag">space</span>
+      </a>
+
+      <!-- Десктоп-ссылки -->
+      <nav class="nav-links">
+        <a href="#problem" class="nav-link">Идея</a>
+        <a href="#vibe" class="nav-link">Вайб-чек</a>
+        <a href="#format" class="nav-link">Формат</a>
+        <a href="#tracks" class="nav-link">Треки</a>
+        <a href="#kids" class="nav-link">Детям</a>
+        <a href="#audience" class="nav-link">Для кого</a>
+        <a href="#rules" class="nav-link">Кодекс</a>
+        <a href="#metrics" class="nav-link">Метрики</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+
+      <!-- Правый блок: кнопка темы, скачивание в PDF и CTA -->
+      <div class="nav-actions">
+        <!-- Кнопка Скачать сайт в PDF -->
+        <button id="downloadPdfBtn" class="btn btn-pdf" title="Скачать всю презентацию проекта в PDF" aria-label="Скачать презентацию в PDF">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" x2="12" y1="15" y2="3"/>
+          </svg>
+          <span class="pdf-btn-text">Скачать PDF</span>
+        </button>
+
+        <!-- Переключатель светлой / тёмной темы -->
+        <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Переключить тему оформления" title="Сменить тему">
+          <!-- Иконка Луна (для тёмной темы) -->
+          <svg id="moonIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+          </svg>
+          <!-- Иконка Солнце (для светлой темы) -->
+          <svg id="sunIcon" style="display: none;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2"/>
+            <path d="M12 20v2"/>
+            <path d="m4.93 4.93 1.41 1.41"/>
+            <path d="m17.66 17.66 1.41 1.41"/>
+            <path d="M2 12h2"/>
+            <path d="M20 12h2"/>
+            <path d="m6.34 17.66-1.41 1.41"/>
+            <path d="m19.07 4.93-1.41 1.41"/>
+          </svg>
+        </button>
+
+        <a href="#cta" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Ворваться</a>
+
+        <!-- Кнопка мобильного меню -->
+        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Открыть мобильное меню">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" x2="20" y1="12" y2="12"/>
+            <line x1="4" x2="20" y1="6" y2="6"/>
+            <line x1="4" x2="20" y1="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Мобильное выпадающее меню -->
+  <div id="mobileNav" class="mobile-nav-overlay">
+    <a href="#problem" class="mobile-nav-link">Идея проекта</a>
+    <a href="#vibe" class="mobile-nav-link">Вайб-чек вечера</a>
+    <a href="#format" class="mobile-nav-link">Формат вечера</a>
+    <a href="#tracks" class="mobile-nav-link">Треки для взрослых</a>
+    <a href="#kids" class="mobile-nav-link">Мастерская для детей</a>
+    <a href="#audience" class="mobile-nav-link">Для кого</a>
+    <a href="#rules" class="mobile-nav-link">Кодекс без духоты</a>
+    <a href="#metrics" class="mobile-nav-link">Ресурсы и метрики</a>
+    <a href="#roadmap" class="mobile-nav-link">Как запуститься</a>
+    <a href="#faq" class="mobile-nav-link">Частые вопросы</a>
+    <button id="mobileDownloadPdfBtn" class="btn btn-secondary" style="width: 100%; justify-content: center; gap: 8px; margin-top: 6px;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+      <span>Скачать презентацию в PDF</span>
+    </button>
+    <a href="#cta" class="btn btn-primary" style="margin-top: 8px;">Записаться на встречу</a>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         1. HERO
+         ========================================================================== -->
+    <section id="hero" class="hero">
+      <div class="hero-glow-1"></div>
+      <div class="hero-glow-2"></div>
+      <div class="container">
+        <div class="hero-content reveal">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;">
+            <span class="sticker-tag">✨ С детьми тусоваться — это стиль</span>
+            <span class="badge" style="font-size: 0.75rem; padding: 3px 10px;">дети рядом • без детей тоже велкам</span>
+          </div>
+          <h1 class="hero-title">ВЗРОСЛЫЕ</h1>
+          <p class="hero-subtitle">Пространство, где быть родителем — это модно. С детьми рядом или соло</p>
+          <p class="hero-text">
+            Тебе 18–35 и кажется, что с детьми негде нормально потусоваться? Забудь про унылые детские комнаты, день сурка и косые взгляды в кофейнях. «Взрослые» — это третье место, где с детьми тусоваться — красиво, модно и в кайф, а без детей — так же уютно. Дети рядом в открытой мастерской создают шедевры из глины и дерева, а ты пьёшь фильтр-кофе, обсуждаешь проекты, играешь в настолки и общаешься со своими.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#cta" class="btn btn-primary">
+              <span>Записаться на встречу</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+              </svg>
+            </a>
+            <a href="#vibe" class="btn btn-secondary">
+              <span>Выбрать свой сценарий</span>
+            </a>
+            <button id="heroDownloadPdfBtn" class="btn btn-secondary btn-hero-pdf" title="Скачать презентацию проекта в PDF">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="12" x2="12" y1="18" x2="12" y2="12"/>
+                <line x1="9" x2="9" y1="15" x2="15" y2="15"/>
+              </svg>
+              <span>Презентация (PDF)</span>
+            </button>
+          </div>
+
+          <div class="hero-badges">
+            <span class="badge badge-accent">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              18–35 лет
+            </span>
+            <span class="badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></svg>
+              с детьми 0+ или соло
+            </span>
+            <span class="badge" style="background: var(--color-ochre-soft); color: var(--color-ochre);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="2"/><line x1="10" x2="10" y1="2"/><line x1="14" x2="14" y1="2"/></svg>
+              спешелти-чай & кофе
+            </span>
+            <span class="badge badge-green">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+              без духоты и шейминга
+            </span>
+            <span class="badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              100% бесплатно
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         2. ПРОБЛЕМА → РЕШЕНИЕ (2 КОЛОНКИ СО СТРЕЛКОЙ)
+         ========================================================================== -->
+    <section id="problem">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Манифест комьюнити</span>
+          <h2 class="section-title">С детьми негде тусоваться: почему появились «Взрослые»</h2>
+          <p class="section-desc">Рождение ребёнка в 18–35 лет не должно запирать тебя дома. Мы ломаем стереотип, что молодые родители могут ходить только по песочницам. Быть родителем сегодня — это красиво, модно и открыто.</p>
+        </div>
+
+        <div class="compare-grid reveal">
+          <!-- Слева: Как обычно -->
+          <div class="compare-card problem">
+            <div>
+              <span class="compare-badge problem-badge">✕ Где тусоваться молодым родителям?</span>
+              <h3 class="compare-title">Негде: бары не для детей, в кофейнях косятся, дома — день сурка</h3>
+              <p class="compare-text">
+                В модные споты и бары с коляской не пройдёшь — неудобно, шумно и ловишь раздражённые взгляды. В кофейнях боишься каждого детского звука. А в традиционных «мамочковых» клубах — нафталин, духота из 90-х и разговоры исключительно о смесях. В итоге молодые родители оказываются в изоляции и чувствуют, что нормальная тусовка закончилась.
+              </p>
+            </div>
+            <div style="margin-top: 24px; font-size: 0.88rem; color: var(--text-dim); display: flex; align-items: center; gap: 8px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              Изоляция, потеря привычного круга общения и ощущение «жизнь на паузе»
+            </div>
+          </div>
+
+          <!-- Стрелка перехода -->
+          <div class="compare-arrow" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"/>
+              <path d="m12 5 7 7-7 7"/>
+            </svg>
+          </div>
+
+          <!-- Справа: Как у нас -->
+          <div class="compare-card solution">
+            <div>
+              <span class="compare-badge solution-badge">✓ Пространство «Взрослые»</span>
+              <h3 class="compare-title">С детьми тусоваться — это стиль: дети рядом + взрослый вайб</h3>
+              <p class="compare-text">
+                Пространство, где дети — не помеха классной жизни, а её естественная часть. Дети находятся рядом — в открытой тактильной мастерской с наставником театра народов (глина, дерево, сказки, театр теней). Ты видишь ребёнка, ребёнок спокоен и увлечён, а ты в 5 метрах пьёшь фильтр и спешелти-чай, споришь о стартапах, книгах и сериалах, играешь в настолки и находишь свою стаю. А без детей — велкам в живое сообщество единомышленников.
+              </p>
+            </div>
+            <div style="margin-top: 24px; font-size: 0.92rem; color: var(--color-ochre); font-weight: 600; display: flex; align-items: center; gap: 8px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Стильная тусовка, дети рядом и общение на равных без чувства вины
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         2.1. ИНТЕРАКТИВНЫЙ VIBE CHECK (ВЫБЕРИ СВОЙ СЦЕНАРИЙ ВЕЧЕРА)
+         ========================================================================== -->
+    <section id="vibe" class="vibe-section">
+      <div class="container">
+        <div class="section-header reveal" style="text-align: center; margin-bottom: 32px;">
+          <span class="section-tag">Интерактив</span>
+          <h2 class="section-title">Какой у тебя вайб сегодня?</h2>
+          <p class="section-desc" style="margin: 0 auto;">Выбери свою текущую ситуацию — и посмотри персональный маршрут вечера во «Взрослых»:</p>
+        </div>
+
+        <div class="vibe-pills-row reveal">
+          <button type="button" class="vibe-pill-btn active" data-vibe="parent">
+            <span>🍼 Молодой родитель (нужен выдох)</span>
+          </button>
+          <button type="button" class="vibe-pill-btn" data-vibe="couple">
+            <span>👫 Пара (съехались / без детей)</span>
+          </button>
+          <button type="button" class="vibe-pill-btn" data-vibe="freelance">
+            <span>💻 Фрилансер / Студент с ребёнком</span>
+          </button>
+          <button type="button" class="vibe-pill-btn" data-vibe="dad">
+            <span>🛹 Отец новой волны</span>
+          </button>
+        </div>
+
+        <div id="vibeDisplay" class="vibe-display-box reveal">
+          <!-- Контент сценария 1 (по умолчанию) -->
+          <div class="vibe-main-info">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+              <span class="sticker-tag" id="vibeTag">Сценарий: Перезагрузка</span>
+              <span class="badge" id="vibeRecommendedTrack">Трек: Менталка & Ресурс</span>
+            </div>
+            <h3 id="vibeTitle" style="font-size: 1.5rem; margin-bottom: 10px;">Два часа, чтобы вспомнить: я — это я</h3>
+            <p id="vibeDesc" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+              Когда целыми днями слышишь только детские песенки и решаешь бытовые квесты, легко забыть о собственных интересах. Здесь ты выдыхаешь, пьёшь горячий чай пока он ещё горячий, и говоришь на взрослые темы.
+            </p>
+            <ul id="vibeSteps" class="vibe-step-list">
+              <li class="vibe-step-item">
+                <span class="vibe-step-num">1</span>
+                <span><strong>18:00</strong> — Заходишь, сбрасываешь куртку, наливаешь травяной чай с мятой и имбирём.</span>
+              </li>
+              <li class="vibe-step-item">
+                <span class="vibe-step-num">2</span>
+                <span><strong>18:15</strong> — Малыш увлечённо лепит свистульку из глины с мастером театра народов.</span>
+              </li>
+              <li class="vibe-step-item">
+                <span class="vibe-step-num">3</span>
+                <span><strong>18:20–19:45</strong> — В кругу ровесников обсуждаем границы со старшими, самооценку и личные проекты.</span>
+              </li>
+              <li class="vibe-step-item">
+                <span class="vibe-step-num">4</span>
+                <span><strong>20:00</strong> — Забираешь гордого ребёнка с поделкой. Домой возвращаетесь спокойными и наполненными.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="vibe-highlight-card">
+            <div style="font-size: 0.85rem; text-transform: uppercase; font-weight: 800; color: var(--color-terracotta); letter-spacing: 0.05em; margin-bottom: 6px;">
+              ✨ Профит для менталки
+            </div>
+            <h4 id="vibeBenefitTitle" style="font-size: 1.15rem; margin-bottom: 8px;">Минус 90% тревожности за вечер</h4>
+            <p id="vibeBenefitDesc" style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 16px;">
+              Ребёнок находится рядом в открытой мастерской: ты видишь его, не дёргаешься и не чувствуешь вины, а голова отдыхает от бесконечного чек-листа дел.
+            </p>
+            <a href="#cta" class="btn btn-primary" style="width: 100%; font-size: 0.9rem; padding: 12px 20px;">
+              Забронировать этот сценарий
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         3. ФОРМАТ (ТАЙМЛАЙН «КАК ПРОХОДИТ ВЕЧЕР»)
+         ========================================================================== -->
+    <section id="format">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Тайминг</span>
+          <h2 class="section-title">Как проходит вечер</h2>
+          <p class="section-desc">Чёткий, отточенный 2-часовой слот раз в неделю. Удобно встроить в любой семейный график.</p>
+        </div>
+
+        <div class="timeline-container reveal">
+          <!-- 18:00 -->
+          <div class="timeline-card">
+            <div class="timeline-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 8h1a4 4 0 1 1 0 8h-1"/>
+                <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/>
+                <line x1="6" y1="2" x2="6" y2="4"/>
+                <line x1="10" y1="2" x2="10" y2="4"/>
+                <line x1="14" y1="2" x2="14" y2="4"/>
+              </svg>
+            </div>
+            <div class="timeline-time">18:00</div>
+            <h4 class="timeline-card-title">Сбор и тёплый чай</h4>
+            <p class="timeline-card-desc">Встречаемся, наливаем горячий чай или морс, мягко знакомимся, выдыхаем после рабочего дня и привыкаем к пространству.</p>
+          </div>
+
+          <!-- 18:15 -->
+          <div class="timeline-card">
+            <div class="timeline-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+                <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+                <path d="M7 21h10"/>
+                <path d="M12 3v18"/>
+                <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>
+              </svg>
+            </div>
+            <div class="timeline-time">18:15</div>
+            <h4 class="timeline-card-title">Разделение по зонам</h4>
+            <p class="timeline-card-desc">Дети уходят в мастерскую театра народов, а взрослые спокойно распределяются по своим выбранным тематическим трекам.</p>
+          </div>
+
+          <!-- 18:15–19:45 -->
+          <div class="timeline-card" style="border-color: var(--color-terracotta);">
+            <div class="timeline-icon" style="background: var(--color-terracotta-soft); color: var(--color-terracotta);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <div class="timeline-time" style="color: var(--color-terracotta);">18:15 – 19:45</div>
+            <h4 class="timeline-card-title">Параллельные треки</h4>
+            <p class="timeline-card-desc">Полтора часа глубокого погружения. Родители заняты делом и общением, дети мастерят своими руками с наставником.</p>
+          </div>
+
+          <!-- 19:45–20:00 -->
+          <div class="timeline-card">
+            <div class="timeline-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
+            <div class="timeline-time">19:45 – 20:00</div>
+            <h4 class="timeline-card-title">Общий сбор и показ</h4>
+            <p class="timeline-card-desc">Собираемся все вместе: дети с гордостью показывают свои поделки, делимся впечатлениями за вечерним чаем и идём домой наполненными.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         4. ТРЕКИ ДЛЯ ВЗРОСЛЫХ (4 КАРТОЧКИ, РАСКРЫВАЮТСЯ ПО КЛИКУ)
+         ========================================================================== -->
+    <section id="tracks">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Взрослые треки</span>
+          <h2 class="section-title">Треки для взрослых</h2>
+          <p class="section-desc">Выбирай то, что откликается сегодня. Нажми на любую карточку, чтобы посмотреть подробную программу трека.</p>
+        </div>
+
+        <div class="tracks-grid reveal">
+          <!-- 1. Своё дело & Финансы -->
+          <div class="track-card expanded" tabindex="0" role="button" aria-expanded="true">
+            <div class="track-header">
+              <div class="track-icon">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 7 13.5 15.5 8.5 10.5 2 17"/>
+                  <polyline points="16 7 22 7 22 13"/>
+                </svg>
+              </div>
+              <div class="track-header-content">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <h3 class="track-title">Своё дело, фриланс & бабки</h3>
+                  <span class="badge" style="font-size: 0.72rem; padding: 2px 8px;">pro</span>
+                </div>
+                <p class="track-summary">Самозанятость, удалёнка, семейный бюджет без ссор и личные проекты</p>
+              </div>
+              <div class="track-toggle-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+            <div class="track-details">
+              <ul class="track-list">
+                <li class="track-list-item">Запуск pet-проектов, самозанятость и фриланс без выгорания</li>
+                <li class="track-list-item">Финансовая грамотность: общий бюджет, подушка безопасности и инвестиции</li>
+                <li class="track-list-item">Продвижение личного бренда и поиск первых заказчиков в Telegram</li>
+                <li class="track-list-item">Mastermind-сессии: открытый разбор идей и взаимный саппорт без критики</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 2. Отцы новой волны -->
+          <div class="track-card" tabindex="0" role="button" aria-expanded="false">
+            <div class="track-header">
+              <div class="track-icon" style="background: var(--color-green-soft); color: var(--color-green-light);">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+                  <path d="m9 12 2 2 4-4"/>
+                </svg>
+              </div>
+              <div class="track-header-content">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <h3 class="track-title">Отцы новой волны</h3>
+                  <span class="badge" style="font-size: 0.72rem; padding: 2px 8px;">safe space</span>
+                </div>
+                <p class="track-summary">Честный мужской диалог: отцовство без токсичности, баланс карьеры и семьи</p>
+              </div>
+              <div class="track-toggle-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+            <div class="track-details">
+              <ul class="track-list">
+                <li class="track-list-item">Откровенный разговор об отцовстве без поучений и патриархальных штампов</li>
+                <li class="track-list-item">Как быть вовлечённым папой, не теряя карьерный драйв и доход</li>
+                <li class="track-list-item">Партнёрство в отношениях: делим быт и уход пополам без драмы</li>
+                <li class="track-list-item">Круг поддержки: возможность выговориться среди таких же молодых отцов</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 3. Менталка & Ресурс -->
+          <div class="track-card" tabindex="0" role="button" aria-expanded="false">
+            <div class="track-header">
+              <div class="track-icon" style="background: var(--color-ochre-soft); color: var(--color-ochre);">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
+                  <path d="M12 6a3 3 0 0 0-3 3c0 2 3 5 3 5s3-3 3-5a3 3 0 0 0-3-3z"/>
+                </svg>
+              </div>
+              <div class="track-header-content">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <h3 class="track-title">Менталка, границы & ресурс</h3>
+                  <span class="badge" style="font-size: 0.72rem; padding: 2px 8px;">care</span>
+                </div>
+                <p class="track-summary">Как не выгореть, выстроить границы со старшими и сохранить своё «Я»</p>
+              </div>
+              <div class="track-toggle-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+            <div class="track-details">
+              <ul class="track-list">
+                <li class="track-list-item">Зарядка внутренней батарейки: избавляемся от синдрома «плохого родителя»</li>
+                <li class="track-list-item">Экологичные границы со старшими родственниками («а вот в наше время...»)</li>
+                <li class="track-list-item">Возвращение к себе: личное время, увлечения, тело и самооценка</li>
+                <li class="track-list-item">Бережная атмосфера, где можно снять маску идеальности и просто быть собой</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 4. Коворкинг, настолки & чай -->
+          <div class="track-card" tabindex="0" role="button" aria-expanded="false">
+            <div class="track-header">
+              <div class="track-icon" style="background: rgba(247, 243, 236, 0.1); color: var(--text-main);">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="14" x="2" y="3" rx="2"/>
+                  <line x1="8" x2="16" y1="21" y2="21"/>
+                  <line x1="12" x2="12" y1="17" y2="21"/>
+                </svg>
+              </div>
+              <div class="track-header-content">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <h3 class="track-title">Коворкинг, настолки & чай</h3>
+                  <span class="badge" style="font-size: 0.72rem; padding: 2px 8px;">chill</span>
+                </div>
+                <p class="track-summary">Тихий рабочий уголок, современные настолки, книги и спешелти-чай</p>
+              </div>
+              <div class="track-toggle-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+            <div class="track-details">
+              <ul class="track-list">
+                <li class="track-list-item">Тихая коворкинг-зона: комфортная работа с ноутбуком в полной тишине</li>
+                <li class="track-list-item">Современные настольные игры и непринуждённый нетворкинг за общим столом</li>
+                <li class="track-list-item">Спешелти-чайная станция, чтение книг и приятная фоновая музыка</li>
+                <li class="track-list-item">Формат нулевого давления: можно прийти в наушниках и просто восстановить силы</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         5. ДЕТСКАЯ МАСТЕРСКАЯ (АКЦЕНТНАЯ СЕКЦИЯ)
+         ========================================================================== -->
+    <section id="kids" class="kids-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag" style="color: var(--color-green-light);">Детская мастерская</span>
+          <h2 class="section-title">Крафт & Театр народов: дети рядом с родителями</h2>
+          <p class="section-desc">
+            Никаких планшетов, мультиков и стресса разлуки. Дети находятся в поле зрения родителей в соседней открытой мастерской: лепят из глины, ткут, мастерят из дерева и ставят спектакли с чутким наставником театра народов.
+          </p>
+        </div>
+
+        <div class="kids-grid reveal">
+          <!-- 1. Глина -->
+          <div class="craft-card">
+            <div class="craft-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.5-.67 1.5-1.5 0-.38-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c3.31 0 6-2.69 6-6 0-4.97-4.48-9-10-9z"/>
+              </svg>
+            </div>
+            <h4 class="craft-name">Глина & свистульки</h4>
+            <p class="craft-desc">Лепка из натуральной глины: звонкие свистульки, посуда и фигурки животных. Развивает моторику и тактильный контакт с материалом.</p>
+          </div>
+
+          <!-- 2. Ткачество -->
+          <div class="craft-card">
+            <div class="craft-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <line x1="3" y1="12" x2="21" y2="12"/>
+                <line x1="3" y1="18" x2="21" y2="18"/>
+                <line x1="6" y1="3" x2="6" y2="21"/>
+                <line x1="12" y1="3" x2="12" y2="21"/>
+                <line x1="18" y1="3" x2="18" y2="21"/>
+              </svg>
+            </div>
+            <h4 class="craft-name">Ткань & плетение</h4>
+            <p class="craft-desc">Плетение аутентичных ярких шнурков, браслетов дружбы, работа на ткацких дощечках и создание забавных лоскутных кукол.</p>
+          </div>
+
+          <!-- 3. Дерево -->
+          <div class="craft-card">
+            <div class="craft-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m12 2 3.5 7h-7L12 2Z"/>
+                <path d="m12 9 4.5 7h-9L12 9Z"/>
+                <path d="M10 16v6h4v-6"/>
+              </svg>
+            </div>
+            <h4 class="craft-name">Дерево & роспись</h4>
+            <p class="craft-desc">Безопасная шлифовка ароматных спилов дерева, сборка деревянных корабликов и роспись натуральными безопасными красками.</p>
+          </div>
+
+          <!-- 4. Береста и бумага -->
+          <div class="craft-card">
+            <div class="craft-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                <path d="M6 6h10"/>
+                <path d="M6 10h10"/>
+              </svg>
+            </div>
+            <h4 class="craft-name">Береста & крафт</h4>
+            <p class="craft-desc">Создание фактурных открыток, ручной отлив бумаги из волокон и эко-аппликации из мягкой бересты.</p>
+          </div>
+
+          <!-- 5. Сказки и театр -->
+          <div class="craft-card">
+            <div class="craft-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 10s3-3 5-3 5 3 5 3"/>
+                <path d="M12 10s3-3 5-3 5 3 5 3"/>
+                <path d="M4 14a8 8 0 0 0 16 0"/>
+              </svg>
+            </div>
+            <h4 class="craft-name">Театр теней & сказки</h4>
+            <p class="craft-desc">Перчаточные куклы, звукоподражание, оживление легенд народов мира и уютные импровизированные сценки.</p>
+          </div>
+
+          <!-- 6. Традиционные игры -->
+          <div class="craft-card">
+            <div class="craft-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <polygon points="10 8 16 12 10 16 10 8"/>
+              </svg>
+            </div>
+            <h4 class="craft-name">Живые игры без гаджетов</h4>
+            <p class="craft-desc">«Бирюльки», хороводы, старинные игры на координацию, ловкость и умение уважать личные границы сверстников.</p>
+          </div>
+        </div>
+
+        <!-- Нижний акцентный баннер -->
+        <div class="kids-banner reveal">
+          <div>
+            <span class="kids-banner-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+              Реальный осязаемый результат
+            </span>
+            <h3 style="font-size: 1.35rem; margin-top: 10px;">Раз в месяц — открытый крафт-показ и выставка для родителей</h3>
+            <p style="opacity: 0.9; font-size: 0.95rem; max-width: 620px; margin-top: 4px;">
+              Каждый ребёнок чувствует себя крутым создателем: в конце месяца мы делаем мини-спектакль и выставляем глиняные и тканые работы под аплодисменты родителей.
+            </p>
+          </div>
+          <a href="#cta" class="btn" style="background: #FFFFFF; color: var(--color-green); font-weight: 800; align-self: flex-start;">
+            Привести ребёнка
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         6. ДЛЯ КОГО (КАРТОЧКИ-ПОРТРЕТЫ ДЛЯ ЗУМЕРОВ)
+         ========================================================================== -->
+    <section id="audience">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Комьюнити своих</span>
+          <h2 class="section-title">Для молодых родителей и друзей: кто здесь собирается</h2>
+          <p class="section-desc">Быть родителем — это крутой современный лайфстайл, а не повод сидеть взаперти. Но если детей пока нет или они дома — в комьюнити рады каждому от 18 до 35 лет.</p>
+        </div>
+
+        <div class="audience-grid reveal">
+          <!-- 1. Молодые мамы (18-35) -->
+          <div class="audience-card">
+            <div class="audience-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+              <h4 class="audience-title" style="margin-bottom: 0;">Молодые мамы</h4>
+              <span class="badge" style="font-size: 0.72rem; padding: 2px 7px;">с детьми 0+</span>
+            </div>
+            <p class="audience-text">Кому не хватало стильного места, чтобы выдохнуть, выпить горячий фильтр и поговорить о карьере, книгах и целях, пока ребёнок рядом увлечён крафтом.</p>
+          </div>
+
+          <!-- 2. Отцы новой волны (18-35) -->
+          <div class="audience-card">
+            <div class="audience-icon" style="background: var(--color-terracotta-soft); color: var(--color-terracotta);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+              <h4 class="audience-title" style="margin-bottom: 0;">Отцы новой волны</h4>
+              <span class="badge" style="font-size: 0.72rem; padding: 2px 7px;">вовлечённые папы</span>
+            </div>
+            <p class="audience-text">Кто гордится родительством, проводит время с детьми не «из-под палки», а в кайф, и хочет тусоваться с классными людьми в современном пространстве.</p>
+          </div>
+
+          <!-- 3. Пары: с детьми 0+ или соло -->
+          <div class="audience-card">
+            <div class="audience-icon" style="background: var(--color-green-soft); color: var(--color-green-light);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 20h5v-2a3 3 0 0 0-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 0 1 5.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 0 1 9.288 0M15 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+              <h4 class="audience-title" style="margin-bottom: 0;">Молодые пары</h4>
+              <span class="badge" style="font-size: 0.72rem; padding: 2px 7px;">с детьми или соло</span>
+            </div>
+            <p class="audience-text">Растите малыша или только съехались: тёплая компания без стереотипов, настольные игры, спешелти-чай и совместные поездки и вылазки.</p>
+          </div>
+
+          <!-- 4. Фрилансеры & студенты -->
+          <div class="audience-card">
+            <div class="audience-icon" style="background: var(--color-ochre-soft); color: var(--color-ochre);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+              <h4 class="audience-title" style="margin-bottom: 0;">Друзья & соло</h4>
+              <span class="badge" style="font-size: 0.72rem; padding: 2px 7px;">18–35 лет</span>
+            </div>
+            <p class="audience-text">У тебя пока нет детей? Приходи работать за ноутбуком, играть в настолки, пить фильтр-кофе и заводить полезные знакомства в открытой атмосфере.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         7. КОДЕКС ПРОСТРАНСТВА (4 ПРАВИЛА БЕЗ ДУХОТЫ)
+         ========================================================================== -->
+    <section id="rules">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Кодекс</span>
+          <h2 class="section-title">Кодекс пространства: 4 правила без духоты</h2>
+          <p class="section-desc">Договорённости, которые создают безопасность, доверие и максимальный комфорт для каждого.</p>
+        </div>
+
+        <div class="rules-grid reveal">
+          <!-- 1 -->
+          <div class="rule-card">
+            <div class="rule-number">1</div>
+            <div class="rule-content">
+              <h4>Zero tolerance к непрошеным советам</h4>
+              <p>Никакого «а вот в наше время...» и шейминга. Мы не оцениваем чужое родительство и чужой быт. Здесь территория безоговорочного принятия.</p>
+            </div>
+          </div>
+
+          <!-- 2 -->
+          <div class="rule-card">
+            <div class="rule-number">2</div>
+            <div class="rule-content">
+              <h4>Автономия двух миров</h4>
+              <p>Взрослые не вмешиваются в детскую мастерскую, давая детям раскрыться с мастером. А дети не отвлекают взрослых от их мыслей и диалогов.</p>
+            </div>
+          </div>
+
+          <!-- 3 -->
+          <div class="rule-card">
+            <div class="rule-number">3</div>
+            <div class="rule-content">
+              <h4>Родитель в 10 секундах</h4>
+              <p>Никакой тревоги: ты за прозрачной перегородкой. Если малышу нужно обняться или попить воды — вы всегда рядом.</p>
+            </div>
+          </div>
+
+          <!-- 4 -->
+          <div class="rule-card">
+            <div class="rule-number">4</div>
+            <div class="rule-content">
+              <h4>Свобода молчать и чиллить</h4>
+              <p>Здесь нет обязаловки активно выступать. Если ты вымотался за неделю — надевай наушники, пей травяной чай и просто молча отдыхай.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         8. РЕСУРСЫ И МЕТРИКИ (2 КОЛОНКИ, COUNT-UP)
+         ========================================================================== -->
+    <section id="metrics">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Прозрачность</span>
+          <h2 class="section-title">Ресурсы и ключевые ориентиры</h2>
+          <p class="section-desc">Всё прозрачно: что нужно для запуска комьюнити и к каким метрикам мы идём.</p>
+        </div>
+
+        <div class="res-metrics-grid reveal">
+          <!-- Колонка Ресурсов -->
+          <div class="resources-card">
+            <h3 style="font-size: 1.35rem; margin-bottom: 8px;">Что нужно для запуска</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Минимальный набор, чтобы создать настоящий уют без бюрократии:</p>
+            <ul class="resources-list">
+              <li class="resource-item">
+                <span class="resource-dot"></span>
+                <span>Звукоизолированная мастерская для детского крафта</span>
+              </li>
+              <li class="resource-item">
+                <span class="resource-dot"></span>
+                <span>Мастер традиционного театра народов (наставник)</span>
+              </li>
+              <li class="resource-item">
+                <span class="resource-dot"></span>
+                <span>Безопасные эко-материалы: глина, дощечки, нити, дерево</span>
+              </li>
+              <li class="resource-item">
+                <span class="resource-dot"></span>
+                <span>Ведущие взрослых треков и модераторы дискуссий без духоты</span>
+              </li>
+              <li class="resource-item">
+                <span class="resource-dot"></span>
+                <span>Спешелти-чайная станция, травяные сборы, полезные снеки</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Колонка Метрик с Count-Up -->
+          <div class="metrics-container">
+            <!-- Метрика 1 -->
+            <div class="metric-box">
+              <div>
+                <div class="metric-val" data-target="10" data-prefix="8–">0</div>
+                <div class="metric-label">участников на встрече для создания доверительной атмосферы</div>
+              </div>
+            </div>
+
+            <!-- Метрика 2 -->
+            <div class="metric-box">
+              <div>
+                <div class="metric-val" data-target="75" data-suffix="%">0</div>
+                <div class="metric-label">участников возвращаются в комьюнити каждую неделю</div>
+              </div>
+            </div>
+
+            <!-- Метрика 3 -->
+            <div class="metric-box">
+              <div>
+                <div class="metric-val" data-target="4" data-suffix=" трека">0</div>
+                <div class="metric-label">параллельных направления под любое настроение и запрос</div>
+              </div>
+            </div>
+
+            <!-- Метрика 4 -->
+            <div class="metric-box">
+              <div>
+                <div class="metric-val" data-target="1" data-suffix=" выставка">0</div>
+                <div class="metric-label">детских крафтовых шедевров и спектакль каждый месяц</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         9. КАК ЗАПУСТИТЬ (МИНИ-ПЛАН НА 4 НЕДЕЛИ)
+         ========================================================================== -->
+    <section id="roadmap">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Дорожная карта</span>
+          <h2 class="section-title">Как запуститься за 4 недели</h2>
+          <p class="section-desc">Пошаговый план быстрого старта слота в любом молодёжном или культурном пространстве.</p>
+        </div>
+
+        <div class="roadmap-grid reveal">
+          <!-- Неделя 1 -->
+          <div class="roadmap-step">
+            <div class="roadmap-tag">Неделя 01</div>
+            <h4 class="roadmap-title">Опрос и сбор запроса</h4>
+            <p class="roadmap-desc">Запускаем короткую анкету в Telegram: узнаём боли, график работы, возраст детей и темы первых треков.</p>
+          </div>
+
+          <!-- Неделя 2 -->
+          <div class="roadmap-step">
+            <div class="roadmap-tag">Неделя 02</div>
+            <h4 class="roadmap-title">Мастерская & Чайная станция</h4>
+            <p class="roadmap-desc">Приглашаем мастера театра народов, закупаем природные эко-материалы для крафта, обустраиваем чайный стол.</p>
+          </div>
+
+          <!-- Неделя 3 -->
+          <div class="roadmap-step" style="border-color: var(--color-terracotta);">
+            <div class="roadmap-tag" style="color: var(--color-terracotta);">Неделя 03</div>
+            <h4 class="roadmap-title">Пилотный вечер «Взрослые»</h4>
+            <p class="roadmap-desc">Проводим первую 2-часовую встречу: тёплый спешелти-чай, параллельные взрослые треки и первый глиняный шедевр детей.</p>
+          </div>
+
+          <!-- Неделя 4 -->
+          <div class="roadmap-step">
+            <div class="roadmap-tag">Неделя 04</div>
+            <h4 class="roadmap-title">Ретроспектива & Регулярность</h4>
+            <p class="roadmap-desc">Собираем честный фидбек в чате, корректируем расписание тем и закрепляем постоянный еженедельный вечер.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         10. CTA + ФОРМА ЗАПИСИ
+         ========================================================================== -->
+    <section id="cta">
+      <div class="container">
+        <div class="cta-card-wrapper reveal">
+          <div class="section-header" style="margin-bottom: 24px; text-align: center;">
+            <div style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <span class="sticker-tag">Вход свободный</span>
+              <span class="badge" style="font-size: 0.72rem; padding: 2px 8px;">18–35 лет • с детьми 0+ или соло</span>
+            </div>
+            <h2 class="section-title">Залетай во «Взрослые»</h2>
+            <p class="section-desc" style="margin: 0 auto;">
+              Приходи с ребёнком, со своей парой или соло. Заполни 4 поля — мы напишем в Telegram, расскажем про ближайший четверг и забронируем за тобой место.
+            </p>
+          </div>
+
+          <form id="leadForm" novalidate>
+            <div class="form-grid">
+              <!-- Имя -->
+              <div class="form-group">
+                <label for="userName" class="form-label">Твоё имя *</label>
+                <input type="text" id="userName" name="userName" class="form-input" placeholder="Например, Саша" required>
+              </div>
+
+              <!-- Возраст -->
+              <div class="form-group">
+                <label for="userAge" class="form-label">Твой возраст *</label>
+                <input type="number" id="userAge" name="userAge" class="form-input" placeholder="Например, 23" min="16" max="35" required>
+              </div>
+
+              <!-- С кем идёшь -->
+              <div class="form-group">
+                <label for="childInfo" class="form-label">С кем планируешь прийти?</label>
+                <input type="text" id="childInfo" name="childInfo" class="form-input" placeholder="С ребёнком (3 года) / С парнем / Соло">
+              </div>
+
+              <!-- Telegram / Телефон -->
+              <div class="form-group">
+                <label for="contactInfo" class="form-label">Telegram или номер телефона *</label>
+                <input type="text" id="contactInfo" name="contactInfo" class="form-input" placeholder="@username или +7 (999) 000-00-00" required>
+              </div>
+
+              <!-- Чекбоксы выбора треков -->
+              <div class="form-group full-width">
+                <label class="form-label">Какой трек откликается больше всего? (можно выбрать несколько)</label>
+                <div class="tracks-checkbox-group">
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="track" value="Своё дело, фриланс & бабки">
+                    <span>Своё дело, фриланс & бабки</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="track" value="Отцы новой волны">
+                    <span>Отцы новой волны</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="track" value="Менталка, границы & ресурс">
+                    <span>Менталка, границы & ресурс</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="track" value="Коворкинг, настолки & чай">
+                    <span>Коворкинг, настолки & чай</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Кнопка отправки -->
+              <div class="form-group full-width" style="margin-top: 12px; display: flex; flex-direction: column; align-items: center;">
+                <button type="submit" class="btn btn-primary" style="width: 100%; max-width: 380px; padding: 16px 32px; font-size: 1.1rem;">
+                  Записаться на встречу
+                </button>
+                <span style="font-size: 0.8rem; color: var(--text-dim); margin-top: 10px;">
+                  100% бесплатно. Чай, крафтовые материалы и место в коворкинге уже включены.
+                </span>
+              </div>
+            </div>
+          </form>
+
+          <!-- Баннер успешной отправки -->
+          <div id="formSuccess" class="form-success-banner" role="alert">
+            <h3 style="color: var(--color-green-light); font-size: 1.4rem; margin-bottom: 8px;">Добро пожаловать во «Взрослые» 🎉</h3>
+            <p style="color: var(--text-main); font-size: 1rem;">Мы добавим тебя в закрытый Telegram-чат участников и пришлём точную локацию и тему ближайшего четверга.</p>
+          </div>
+
+          <!-- Блок контактов для печатной PDF-версии -->
+          <div class="print-contact-summary">
+            <h4 style="font-size: 1.25rem; margin-bottom: 8px; color: #B85839;">Запись в молодёжный проект «Взрослые»</h4>
+            <p style="font-size: 0.95rem; margin-bottom: 12px; color: #4A453F;">Участие бесплатное. Встречи проходят каждый четверг с 18:00 до 20:00 в Молодёжном центре.</p>
+            <p style="font-size: 1rem; font-weight: 700; color: #1A1816;">Контакты для записи: Telegram @adults_space • hello@adults-space.ru</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         11. FAQ (АККОРДЕОН, 6 ВОПРОСОВ)
+         ========================================================================== -->
+    <section id="faq">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">База знаний</span>
+          <h2 class="section-title">Часто задаваемые вопросы</h2>
+          <p class="section-desc">Честные ответы на всё, о чём обычно спрашивают перед первым визитом во «Взрослые».</p>
+        </div>
+
+        <div class="faq-list reveal">
+          <!-- 1 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>Можно ли прийти соло (без детей или без пары)?</span>
+              <div class="faq-chevron">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </button>
+            <div class="faq-answer">
+              <p>Да, абсолютно! «Взрослые» — это городское молодёжное комьюнити для 18–35 лет: с детьми 0+ или соло. Если у тебя пока нет детей, они остались дома со вторым родителем или в садике — приходи знакомиться, работать в коворкинге, пить спешелти-чай, играть в настолки и развивать пет-проекты.</p>
+            </div>
+          </div>
+
+          <!-- 2 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>С какого возраста берёте детей в мастерскую?</span>
+              <div class="faq-chevron">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </button>
+            <div class="faq-answer">
+              <p>Мы ориентируемся на детей от 0 до 7 лет. Для малышей 0–2 года оборудована мягкая зона с природными сенсорными материалами и тихими игрушками. Для ребят от 3 до 7 лет мастер театра народов проводит интерактивные ремесленные мастер-классы: лепка из глины, ткачество, работа со спилами дерева и театр сказок.</p>
+            </div>
+          </div>
+
+          <!-- 3 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>Это правда 100% бесплатно? В чём подвох?</span>
+              <div class="faq-chevron">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </button>
+            <div class="faq-answer">
+              <p>Никаких скрытых платежей, донатов или платных курсов. Проект реализуется на базе открытого городского молодёжного центра как бесплатное пространство для молодёжи 18–35 лет. Чайная станция, работа наставника театра народов и все крафтовые материалы предоставляются бесплатно.</p>
+            </div>
+          </div>
+
+          <!-- 4 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>А если я интроверт и не хочу активно общаться?</span>
+              <div class="faq-chevron">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </button>
+            <div class="faq-answer">
+              <p>Полное понимание! Никакого обязательного тимбилдинга. В треке «Коворкинг, настолки & чай» можно надеть наушники с шумоподавлением, сесть с ноутбуком у розетки или почитать книгу. Тебя никто не станет дёргать или принуждать к разговорам.</p>
+            </div>
+          </div>
+
+          <!-- 5 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>Кто занимается с детьми во время взрослого трека?</span>
+              <div class="faq-chevron">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </button>
+            <div class="faq-answer">
+              <p>С детьми работает профессиональный мастер-педагог традиционного театра народов при поддержке обученных волонтёров. Это не шаблонный надзор с гаджетами, а погружение в ремёсла, тактильное творчество и живой диалог со сказкой.</p>
+            </div>
+          </div>
+
+          <!-- 6 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>Что взять с собой на первый вечер?</span>
+              <div class="faq-chevron">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </button>
+            <div class="faq-answer">
+              <p>Возьми удобные носочки или чистую сменную обувь (для себя и ребёнка), бутылочку для воды и зарядку для гаджетов. Если хочешь поработать — захвати ноутбук. Все материалы для крафта, чай и снеки уже есть в пространстве.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       12. ФУТЕР
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Брендинг -->
+        <div class="footer-brand">
+          <div class="logo" style="margin-bottom: 14px;">
+            <div class="logo-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </div>
+            <span>Взрослые</span>
+          </div>
+          <p>Городское комьюнити для молодёжи 18–35 лет: с детьми 0+ или соло. Пространство, где можно выдохнуть: взрослые треки, созидание, свои люди и тактильная мастерская для детей.</p>
+          <div class="social-links">
+            <!-- Telegram -->
+            <a href="https://t.me/adults_space" class="social-btn" aria-label="Telegram канал" title="Telegram" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" x2="11" y1="2" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </a>
+            <!-- ВКонтакте -->
+            <a href="#" class="social-btn" aria-label="Сообщество ВКонтакте" title="ВКонтакте">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M15.07 2H8.93C4.54 2 2 4.54 2 8.93v6.14C2 19.46 4.54 22 8.93 22h6.14c4.39 0 6.93-2.54 6.93-6.93V8.93C22 4.54 19.46 2 15.07 2zm3.38 13.71h-1.57c-.6 0-.78-.47-1.85-1.54-.93-.9-1.34-1.02-1.57-1.02-.32 0-.41.09-.41.54v1.44c0 .38-.12.58-1.12.58-1.65 0-3.48-1-4.76-2.85C5.17 10.05 4.5 8.1 4.5 7.67c0-.23.09-.44.53-.44h1.57c.4 0 .55.18.7.6.77 2.24 2.06 4.2 2.6 4.2.2 0 .29-.09.29-.6V9.41c-.06-1.13-.66-1.23-.66-1.63 0-.19.16-.38.42-.38h2.46c.35 0 .47.19.47.6v3.25c0 .35.15.47.26.47.2 0 .38-.12.77-.51 1.18-1.32 2.02-3.35 2.02-3.35.11-.23.29-.44.69-.44h1.57c.47 0 .57.24.47.58-.19.68-1.81 3.51-1.88 3.65-.18.33-.25.48 0 .81.18.24.77.75 1.16 1.2 1.05 1.19 1.48 1.76 1.58 2.15.11.38-.11.58-.51.58z"/>
+              </svg>
+            </a>
+            <!-- YouTube -->
+            <a href="#" class="social-btn" aria-label="YouTube канал" title="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><polygon points="10 15 15 12 10 9 10 15"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Навигация -->
+        <div class="footer-col">
+          <h5>Разделы</h5>
+          <ul class="footer-links">
+            <li><a href="#hero" class="footer-link">Главная</a></li>
+            <li><a href="#vibecheck" class="footer-link">Vibe Check</a></li>
+            <li><a href="#tracks" class="footer-link">Треки для взрослых</a></li>
+            <li><a href="#kids" class="footer-link">Детская мастерская</a></li>
+            <li><a href="#rules" class="footer-link">Кодекс без духоты</a></li>
+            <li><a href="#roadmap" class="footer-link">План запуска</a></li>
+            <li><a href="#" id="footerDownloadPdfBtn" class="footer-link" style="color: var(--color-ochre); font-weight: 600;">📥 Скачать презентацию (PDF)</a></li>
+          </ul>
+        </div>
+
+        <!-- Контакты -->
+        <div class="footer-col">
+          <h5>Контакты</h5>
+          <ul class="footer-links">
+            <li style="color: var(--text-muted); font-size: 0.9rem;">📍 Молодёжный центр города</li>
+            <li style="color: var(--text-muted); font-size: 0.9rem;">⏰ Каждый четверг, 18:00 – 20:00</li>
+            <li><a href="mailto:hello@adults-space.ru" class="footer-link">✉️ hello@adults-space.ru</a></li>
+            <li><a href="https://t.me/adults_space" class="footer-link" target="_blank" rel="noopener">💬 @adults_space</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Проект «Взрослые». Городское молодёжное комьюнити 18–35 лет.</div>
+        <div>18–35 лет • с детьми 0+ или соло • без духоты</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Кнопка "Наверх" -->
+  <button id="backToTopBtn" class="back-to-top" aria-label="Вернуться наверх" title="Наверх">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- ==========================================================================
+       ВСТРОЕННЫЙ JAVASCRIPT (ЧИСТЫЙ JS БЕЗ БИБЛИОТЕК)
+       ========================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // ------------------------------------------------------------------------
+      // 1. ПЕРЕКЛЮЧЕНИЕ ТЕМЫ (СВЕТЛАЯ / ТЁМНАЯ, ПО УМОЛЧАНИЮ СВЕТЛАЯ УЮТНАЯ)
+      // ------------------------------------------------------------------------
+      const htmlEl = document.documentElement;
+      const themeToggleBtn = document.getElementById('themeToggleBtn');
+      const moonIcon = document.getElementById('moonIcon');
+      const sunIcon = document.getElementById('sunIcon');
+
+      // По умолчанию включаем тёплую семейную светлую тему
+      const savedTheme = localStorage.getItem('ryadom_light_theme') || 'light';
+      setTheme(savedTheme);
+
+      themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = htmlEl.getAttribute('data-theme') || 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
+      });
+
+      function setTheme(theme) {
+        htmlEl.setAttribute('data-theme', theme);
+        localStorage.setItem('ryadom_light_theme', theme);
+        localStorage.setItem('ryadom_theme', theme);
+        if (theme === 'light') {
+          // В светлой теме видна луна: клик переключит на тёмную
+          moonIcon.style.display = 'block';
+          sunIcon.style.display = 'none';
+          themeToggleBtn.setAttribute('title', 'Переключить на тёмную тему');
+          themeToggleBtn.setAttribute('aria-label', 'Переключить на тёмную тему');
+        } else {
+          // В тёмной теме видно солнце: клик переключит на светлую
+          moonIcon.style.display = 'none';
+          sunIcon.style.display = 'block';
+          themeToggleBtn.setAttribute('title', 'Переключить на светлую тему');
+          themeToggleBtn.setAttribute('aria-label', 'Переключить на светлую тему');
+        }
+      }
+
+      // ------------------------------------------------------------------------
+      // 2. МОБИЛЬНОЕ МЕНЮ
+      // ------------------------------------------------------------------------
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileNav = document.getElementById('mobileNav');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link, #mobileNav .btn');
+
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileNav.classList.toggle('open');
+      });
+
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileNav.classList.remove('open');
+        });
+      });
+
+      // ------------------------------------------------------------------------
+      // 2.1. ИНТЕРАКТИВНЫЙ VIBE CHECK
+      // ------------------------------------------------------------------------
+      const vibePills = document.querySelectorAll('.vibe-pill-btn');
+      const vibeTag = document.getElementById('vibeTag');
+      const vibeRecommendedTrack = document.getElementById('vibeRecommendedTrack');
+      const vibeTitle = document.getElementById('vibeTitle');
+      const vibeDesc = document.getElementById('vibeDesc');
+      const vibeSteps = document.getElementById('vibeSteps');
+      const vibeBenefitTitle = document.getElementById('vibeBenefitTitle');
+      const vibeBenefitDesc = document.getElementById('vibeBenefitDesc');
+      const vibeDisplay = document.getElementById('vibeDisplay');
+
+      const vibeData = {
+        parent: {
+          tag: 'Сценарий: Перезагрузка',
+          track: 'Трек: Менталка & Ресурс',
+          title: 'Два часа, чтобы вспомнить: я — это я',
+          desc: 'Когда целыми днями слышишь только детские песенки и решаешь бытовые квесты, легко забыть о собственных интересах. Здесь ты выдыхаешь, пьёшь горячий чай пока он ещё горячий, и говоришь на взрослые темы.',
+          steps: [
+            '<strong>18:00</strong> — Заходишь, сбрасываешь куртку, наливаешь травяной чай с мятой и имбирём.',
+            '<strong>18:15</strong> — Малыш увлечённо лепит свистульку из глины с мастером театра народов.',
+            '<strong>18:20–19:45</strong> — В кругу ровесников обсуждаем границы со старшими, самооценку и личные проекты.',
+            '<strong>20:00</strong> — Забираешь гордого ребёнка с поделкой. Домой возвращаетесь спокойными и наполненными.'
+          ],
+          benefitTitle: 'Минус 90% тревожности за вечер',
+          benefitDesc: 'Ребёнок находится рядом в открытой мастерской: ты видишь его, не дёргаешься и не чувствуешь вины, а голова отдыхает от бесконечного чек-листа дел.'
+        },
+        couple: {
+          tag: 'Сценарий: Вайбовый вечер вдвоём',
+          track: 'Трек: Коворкинг, настолки & чай',
+          title: 'Провести качественный вечер вместе и найти своих людей',
+          desc: 'Смена обстановки для пар, которые только съехались или строят совместные планы. Никакой неловкости: уютные диваны, настолки на сообразительность, интересные разговоры и спешелти-чай.',
+          steps: [
+            '<strong>18:00</strong> — Приходите вдвоём, выбираете столик или мягкие пуфы в чайной зоне.',
+            '<strong>18:15</strong> — Знакомитесь с другими молодыми парами и ребятами города.',
+            '<strong>18:30–19:50</strong> — Разбираем прикольную настолку или обсуждаем лайфхаки съёмного жилья и путешествий.',
+            '<strong>20:00</strong> — Уходите с новыми контактами в Telegram и ощущением тёплого, живого вечера.'
+          ],
+          benefitTitle: 'Живые друзья вместо скролла ленты',
+          benefitDesc: 'Побег от домашней рутины сериалов. Возможность познакомиться с классными сверстниками со схожими ценностями.'
+        },
+        freelance: {
+          tag: 'Сценарий: Фокус & Продуктивность',
+          track: 'Трек: Своё дело & фриланс',
+          title: '2 часа чистой работы в тишине с розеткой и Wi-Fi',
+          desc: 'Знакома ситуация: нужно доделать проект, сдать курсовую или ответить клиентам, а дома ребёнок требует внимания 24/7? Во «Взрослых» ты получаешь тихое рабочее место, пока ребёнок занят творчеством.',
+          steps: [
+            '<strong>18:00</strong> — Подключаешь ноутбук к быстрому Wi-Fi и розетке, ставишь термос рядом.',
+            '<strong>18:10</strong> — Передаёшь ребёнка мастеру: сегодня они изучают ткачество и театр теней.',
+            '<strong>18:15–19:50</strong> — 1.5 часа режима глубокого фокуса (Deep Work) без прерываний.',
+            '<strong>20:00</strong> — Закрываешь все рабочие задачи. Дома вечер полностью свободен для отдыха!'
+          ],
+          benefitTitle: '100% концентрация без чувства вины',
+          benefitDesc: 'Ты не отмахиваешься от ребёнка — он занят крутым развивающим ремеслом с наставником, пока ты продуктивно закрываешь задачи.'
+        },
+        dad: {
+          tag: 'Сценарий: Мужской круг без пафоса',
+          track: 'Трек: Отцы новой волны',
+          title: 'Честный разговор о деньгах, отцовстве и балансе',
+          desc: 'Качественное время с ребёнком и мужское комьюнити без архаичных советов. Как обеспечивать семью, не сгорая на трёх работах, и быть реально включённым отцом.',
+          steps: [
+            '<strong>18:00</strong> — Приходишь с ребёнком, знакомишься с наставником ремесленной зоны.',
+            '<strong>18:15</strong> — Сын или дочка с восторгом пилят безопасный деревянный кораблик.',
+            '<strong>18:20–19:45</strong> — За чаем обсуждаем карьеру, инвестиции, психологию воспитания и выгорание.',
+            '<strong>20:00</strong> — Совместно с ребёнком любуетесь готовой деревянной игрушкой. Ребёнок гордится папой.'
+          ],
+          benefitTitle: 'Равный диалог без токсичности',
+          benefitDesc: 'Круг парней одного возраста, которые понимают вызовы молодого отца в 2026 году и поддерживают друг друга делом.'
+        }
+      };
+
+      if (vibePills.length && vibeDisplay) {
+        vibePills.forEach(pill => {
+          pill.addEventListener('click', () => {
+            const vibeKey = pill.getAttribute('data-vibe');
+            if (!vibeKey || !vibeData[vibeKey]) return;
+
+            vibePills.forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+
+            vibeDisplay.style.opacity = '0.4';
+            vibeDisplay.style.transform = 'translateY(6px)';
+
+            setTimeout(() => {
+              const data = vibeData[vibeKey];
+              vibeTag.textContent = data.tag;
+              vibeRecommendedTrack.textContent = data.track;
+              vibeTitle.textContent = data.title;
+              vibeDesc.textContent = data.desc;
+              vibeBenefitTitle.textContent = data.benefitTitle;
+              vibeBenefitDesc.textContent = data.benefitDesc;
+
+              vibeSteps.innerHTML = data.steps.map((stepHtml, index) => `
+                <li class="vibe-step-item">
+                  <span class="vibe-step-num">${index + 1}</span>
+                  <span>${stepHtml}</span>
+                </li>
+              `).join('');
+
+              vibeDisplay.style.opacity = '1';
+              vibeDisplay.style.transform = 'translateY(0)';
+            }, 140);
+          });
+        });
+      }
+
+      // ------------------------------------------------------------------------
+      // 3. РАСКРЫВАЮЩИЕСЯ КАРТОЧКИ ТРЕКОВ ДЛЯ РОДИТЕЛЕЙ
+      // ------------------------------------------------------------------------
+      const trackCards = document.querySelectorAll('.track-card');
+
+      trackCards.forEach(card => {
+        card.addEventListener('click', () => {
+          const isExpanded = card.classList.contains('expanded');
+          // Если кликаем по уже открытой карточке - закрываем её
+          if (isExpanded) {
+            card.classList.remove('expanded');
+            card.setAttribute('aria-expanded', 'false');
+          } else {
+            // Закрываем другие карточки для опрятности
+            trackCards.forEach(c => {
+              c.classList.remove('expanded');
+              c.setAttribute('aria-expanded', 'false');
+            });
+            card.classList.add('expanded');
+            card.setAttribute('aria-expanded', 'true');
+          }
+        });
+
+        // Доступность: управление с клавиатуры (Enter / Пробел)
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            card.click();
+          }
+        });
+      });
+
+      // ------------------------------------------------------------------------
+      // 4. FAQ АККОРДЕОН
+      // ------------------------------------------------------------------------
+      const faqItems = document.querySelectorAll('.faq-item');
+
+      faqItems.forEach(item => {
+        const btn = item.querySelector('.faq-question-btn');
+        btn.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          // Закрываем соседние элементы
+          faqItems.forEach(i => {
+            i.classList.remove('active');
+            i.querySelector('.faq-question-btn').setAttribute('aria-expanded', 'false');
+          });
+          if (!isActive) {
+            item.classList.add('active');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+
+      // ------------------------------------------------------------------------
+      // 5. КНОПКА «НАВЕРХ» (ПОСЛЕ 600px СКРОЛЛА)
+      // ------------------------------------------------------------------------
+      const backToTopBtn = document.getElementById('backToTopBtn');
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 600) {
+          backToTopBtn.classList.add('show');
+        } else {
+          backToTopBtn.classList.remove('show');
+        }
+      }, { passive: true });
+
+      backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      // ------------------------------------------------------------------------
+      // 6. АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ (INTERSECTION OBSERVER)
+      // ------------------------------------------------------------------------
+      const revealElements = document.querySelectorAll('.reveal');
+
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      revealElements.forEach(el => revealObserver.observe(el));
+
+      // ------------------------------------------------------------------------
+      // 7. АНИМАЦИЯ COUNT-UP ДЛЯ МЕТРИК
+      // ------------------------------------------------------------------------
+      const metricVals = document.querySelectorAll('.metric-val');
+      let metricsCounted = false;
+
+      const metricsObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !metricsCounted) {
+            metricsCounted = true;
+            metricVals.forEach(valEl => {
+              const target = parseInt(valEl.getAttribute('data-target'), 10);
+              const prefix = valEl.getAttribute('data-prefix') || '';
+              const suffix = valEl.getAttribute('data-suffix') || '';
+              let current = 0;
+              const duration = 1500;
+              const stepTime = 30;
+              const steps = duration / stepTime;
+              const increment = target / steps;
+
+              const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                  current = target;
+                  clearInterval(timer);
+                }
+                valEl.textContent = prefix + Math.round(current) + suffix;
+              }, stepTime);
+            });
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+
+      const metricsSection = document.getElementById('metrics');
+      if (metricsSection) {
+        metricsObserver.observe(metricsSection);
+      }
+
+      // ------------------------------------------------------------------------
+      // 8. ВАЛИДАЦИЯ И ОТПРАВКА ФОРМЫ (БЕЗ БЭКЕНДА, С ТОСТОМ)
+      // ------------------------------------------------------------------------
+      const leadForm = document.getElementById('leadForm');
+      const formSuccess = document.getElementById('formSuccess');
+
+      leadForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const nameInput = document.getElementById('userName');
+        const ageInput = document.getElementById('userAge');
+        const contactInput = document.getElementById('contactInfo');
+
+        // Простая клиентская валидация обязательных полей
+        if (!nameInput.value.trim()) {
+          nameInput.focus();
+          nameInput.style.borderColor = 'var(--color-terracotta)';
+          return;
+        }
+        if (!ageInput.value || ageInput.value < 14) {
+          ageInput.focus();
+          ageInput.style.borderColor = 'var(--color-terracotta)';
+          return;
+        }
+        if (!contactInput.value.trim()) {
+          contactInput.focus();
+          contactInput.style.borderColor = 'var(--color-terracotta)';
+          return;
+        }
+
+        // Собираем данные формы
+        const formData = new FormData(leadForm);
+        const selectedTracks = formData.getAll('track');
+
+        console.log('Новая запись в проект «Взрослые»:', {
+          name: nameInput.value.trim(),
+          age: ageInput.value,
+          child: document.getElementById('childInfo').value.trim() || 'Без ребёнка',
+          contact: contactInput.value.trim(),
+          tracks: selectedTracks.length ? selectedTracks : ['Не выбрано']
+        });
+
+        // Скрываем форму и показываем подтверждение
+        leadForm.style.display = 'none';
+        formSuccess.classList.add('visible');
+
+        // Плавный скролл к сообщению об успехе
+        formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+
+      // Сброс красной рамки при вводе
+      const inputs = leadForm.querySelectorAll('.form-input');
+      inputs.forEach(input => {
+        input.addEventListener('input', () => {
+          input.style.borderColor = 'var(--border-color)';
+        });
+      });
+
+      // ------------------------------------------------------------------------
+      // 9. СКАЧАТЬ САЙТ ЦЕЛИКОМ В PDF (С ПОЛНЫМ РАСКРЫТИЕМ ВСЕХ РАЗДЕЛОВ)
+      // ------------------------------------------------------------------------
+      function downloadWebsiteAsPdf() {
+        // Если доступен модуль генерации PDF презентации
+        if (typeof window.downloadPresentationPdf === 'function') {
+          window.downloadPresentationPdf();
+          return;
+        }
+
+        // Запасной fallback: подготовка страницы и вызов печати
+        document.querySelectorAll('.track-card').forEach(card => {
+          card.classList.add('expanded');
+          card.setAttribute('aria-expanded', 'true');
+        });
+
+        document.querySelectorAll('.faq-item').forEach(item => {
+          item.classList.add('active');
+          const btn = item.querySelector('.faq-question-btn');
+          if (btn) btn.setAttribute('aria-expanded', 'true');
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => {
+          el.classList.add('active');
+        });
+
+        try {
+          window.print();
+        } catch (err) {
+          console.warn('Печать недоступна:', err);
+        }
+      }
+
+      // Слушатели на все кнопки скачивания в PDF
+      const downloadPdfBtn = document.getElementById('downloadPdfBtn');
+      if (downloadPdfBtn) {
+        downloadPdfBtn.addEventListener('click', downloadWebsiteAsPdf);
+      }
+
+      const heroDownloadPdfBtn = document.getElementById('heroDownloadPdfBtn');
+      if (heroDownloadPdfBtn) {
+        heroDownloadPdfBtn.addEventListener('click', downloadWebsiteAsPdf);
+      }
+
+      const mobileDownloadPdfBtn = document.getElementById('mobileDownloadPdfBtn');
+      if (mobileDownloadPdfBtn) {
+        mobileDownloadPdfBtn.addEventListener('click', () => {
+          mobileNav.classList.remove('open');
+          downloadWebsiteAsPdf();
+        });
+      }
+
+      const footerDownloadPdfBtn = document.getElementById('footerDownloadPdfBtn');
+      if (footerDownloadPdfBtn) {
+        footerDownloadPdfBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          downloadWebsiteAsPdf();
+        });
+      }
+    });
+  </script>
+
+  <!-- Интерактивный модуль формирования и скачивания PDF презентации -->
+  <script type="module" src="/src/pdf-export.ts"></script>
+</body>
+</html>
