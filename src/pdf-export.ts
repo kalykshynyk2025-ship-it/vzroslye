@@ -39,20 +39,19 @@ function createSlideCanvas(slideNumber: number): HTMLCanvasElement {
 
   // Верхний колонтитул (кроме титульного слайда)
   if (slideNumber > 1) {
-    ctx.font = '900 26px "Unbounded", "Inter", sans-serif';
-    const logoText = 'ВЗРОСЛЫЕ';
-    const logoWidth = Math.max(ctx.measureText(logoText).width, 240);
-
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'alphabetic';
+    ctx.font = '900 24px "Unbounded", "Inter", sans-serif';
     ctx.fillStyle = '#0F172A';
-    ctx.fillText(logoText, 80, 70);
+    ctx.fillText('ВЗРОСЛЫЕ', 80, 70);
 
-    // Стильный тег-бейдж для подзаголовка с гарантированным отступом
-    const tagX = 80 + logoWidth + 30;
+    // Гарантированная позиция бейджа с отступом от логотипа
+    const tagX = 350;
     const tagText = 'ПРОСТРАНСТВО ДЛЯ МОЛОДЫХ РОДИТЕЛЕЙ И ДРУЗЕЙ';
-    ctx.font = 'bold 13px "Inter", sans-serif';
-    const tagWidth = ctx.measureText(tagText).width + 32;
+    ctx.font = 'bold 12px "Inter", sans-serif';
+    const tagWidth = ctx.measureText(tagText).width + 36;
 
-    roundRect(ctx, tagX, 48, tagWidth, 32, 16);
+    roundRect(ctx, tagX, 47, tagWidth, 32, 16);
     ctx.fillStyle = 'rgba(255, 87, 51, 0.1)';
     ctx.fill();
     ctx.strokeStyle = 'rgba(255, 87, 51, 0.3)';
@@ -60,7 +59,7 @@ function createSlideCanvas(slideNumber: number): HTMLCanvasElement {
     ctx.stroke();
 
     ctx.fillStyle = '#FF5733';
-    ctx.fillText(tagText, tagX + 16, 69);
+    ctx.fillText(tagText, tagX + 18, 68);
 
     ctx.fillStyle = '#94A3B8';
     ctx.font = '600 15px "Inter", sans-serif';
@@ -74,219 +73,187 @@ function createSlideCanvas(slideNumber: number): HTMLCanvasElement {
     ctx.stroke();
   }
 
-  // Слайд 1: Обложка & Манифест
+  // Слайд 1: Для организаторов & Паспорт проекта
   if (slideNumber === 1) {
-    // Декоративное пятно
     const grad = ctx.createRadialGradient(width - 300, 200, 50, width - 300, 200, 400);
     grad.addColorStop(0, 'rgba(255, 87, 51, 0.15)');
     grad.addColorStop(1, 'rgba(255, 87, 51, 0)');
     ctx.fillStyle = grad;
     ctx.fillRect(width - 700, 0, 700, 600);
 
-    // Стикер-тег
-    roundRect(ctx, 80, 140, 420, 44, 22);
+    // Стикер-тег: Паспорт проекта
+    roundRect(ctx, 80, 120, 520, 42, 21);
     ctx.fillStyle = 'rgba(255, 87, 51, 0.12)';
     ctx.fill();
     ctx.fillStyle = '#FF5733';
-    ctx.font = 'bold 18px "Inter", sans-serif';
-    ctx.fillText('✨ С ДЕТЬМИ ТУСОВАТЬСЯ — ЭТО СТИЛЬ', 105, 168);
+    ctx.font = 'bold 16px "Inter", sans-serif';
+    ctx.fillText('📋 ПАСПОРТ ПРОЕКТА • ДЛЯ ОРГАНИЗАТОРОВ И ПЛОЩАДОК', 105, 147);
 
     // Главный заголовок
     ctx.fillStyle = '#0F172A';
-    ctx.font = '900 86px "Unbounded", sans-serif';
-    ctx.fillText('ВЗРОСЛЫЕ', 80, 280);
+    ctx.font = '900 76px "Unbounded", sans-serif';
+    ctx.fillText('ВЗРОСЛЫЕ', 80, 240);
 
     // Подзаголовок
     ctx.fillStyle = '#FF5733';
-    ctx.font = '700 32px "Inter", sans-serif';
-    ctx.fillText('Пространство, где быть родителем — это модно.', 80, 340);
+    ctx.font = '700 24px "Inter", sans-serif';
+    ctx.fillText('Проект от Иммерсивного театра народов России • Наставники: Семейные', 80, 286);
+
     ctx.fillStyle = '#475569';
-    ctx.font = '500 26px "Inter", sans-serif';
-    ctx.fillText('С детьми рядом или соло • без скучных детских комнат', 80, 380);
+    ctx.font = '500 18px "Inter", sans-serif';
+    ctx.fillText('Культурный код: воспитание через уважение и созидательный труд руками • 18–35 лет', 80, 316);
 
-    // Главный манифест в карточке
-    roundRect(ctx, 80, 440, width - 160, 360, 24);
-    ctx.fillStyle = '#FFFFFF';
-    ctx.fill();
-    ctx.strokeStyle = 'rgba(15, 23, 42, 0.08)';
-    ctx.lineWidth = 1.5;
-    ctx.stroke();
-
-    ctx.fillStyle = '#0F172A';
-    ctx.font = 'bold 28px "Inter", sans-serif';
-    ctx.fillText('Почему мы здесь собрались?', 120, 510);
-
-    ctx.fillStyle = '#334155';
-    ctx.font = '400 22px "Inter", sans-serif';
-    const lines = [
-      '• Молодым родителям (18–35 лет) буквально негде тусоваться: бары не для колясок,',
-      '  в кофейнях смотрят косо, а в обычных «мамочковых» клубах — нафталин и тоска.',
-      '• Мы доказываем: родительство — это не изоляция и не день сурка, а новый рок-н-ролл.',
-      '• Дети находятся рядом — в открытой мастерской ремёсел с наставником театра народов.',
-      '• Родители в 5 метрах пьют фильтр-кофе, обсуждают карьеру, проекты и играют в настолки.',
-      '• А без детей — велкам в живое творческое комьюнити без снобизма!'
+    // 3 карточки паспорта: Кто проводит | Проблема | Зачем и формат
+    const passportCards = [
+      {
+        title: 'КТО ПРОВОДИТ',
+        color: '#FF5733',
+        bg: 'rgba(255, 87, 51, 0.08)',
+        lines: [
+          'Иммерсивный театр народов России. Наставники: Семейные',
+          '(семейные пары и мастера традиций, психологи, педагоги,',
+          'предприниматели и опытные родители со стажем воспитания).'
+        ]
+      },
+      {
+        title: 'КАКАЯ ПРОБЛЕМА',
+        color: '#DC2626',
+        bg: 'rgba(239, 68, 68, 0.08)',
+        lines: [
+          '1) Родителям негде тусоваться: бары не для детей, в кофейнях',
+          'косятся, дома — день сурка. 2) Соло 18–35 лет негде встретить',
+          'осознанных людей. 3) Детям не хватает ручного созидательного труда.'
+        ]
+      },
+      {
+        title: 'ЗАЧЕМ И ФОРМАТ',
+        color: '#059669',
+        bg: 'rgba(5, 150, 105, 0.08)',
+        lines: [
+          'Разделение по зонам (по примеру пространств «Молодёжь Москвы»):',
+          'дети переходят в открытую мастерскую, взрослые — в параллельные',
+          'треки общения & свободный чай. Каждый четверг (18:00–20:00), 100% бесплатно.'
+        ]
+      }
     ];
-    let y = 565;
-    for (const l of lines) {
-      ctx.fillText(l, 120, y);
-      y += 40;
-    }
+
+    let py = 355;
+    passportCards.forEach(c => {
+      roundRect(ctx, 80, py, width - 160, 140, 18);
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(15, 23, 42, 0.08)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      roundRect(ctx, 105, py + 20, 190, 32, 16);
+      ctx.fillStyle = c.bg;
+      ctx.fill();
+      ctx.fillStyle = c.color;
+      ctx.font = 'bold 13px "Inter", sans-serif';
+      ctx.fillText(c.title, 120, py + 41);
+
+      ctx.fillStyle = '#334155';
+      ctx.font = '500 18px "Inter", sans-serif';
+      let ly = py + 38;
+      c.lines.forEach((l, idx) => {
+        ctx.fillText(l, 320, ly + idx * 26);
+      });
+
+      py += 160;
+    });
 
     // Бейджи внизу
     const badges = [
       { text: '18–35 лет', color: '#FF5733' },
       { text: 'Дети рядом (0+)', color: '#059669' },
       { text: 'Спешелти-чай & кофе', color: '#D97706' },
-      { text: '100% бесплатно', color: '#2563EB' }
+      { text: 'Соло кто хочет семью', color: '#6366F1' },
+      { text: '100% бесплатно', color: '#0F172A' }
     ];
     let bx = 80;
     for (const b of badges) {
-      roundRect(ctx, bx, 850, 240, 52, 26);
+      roundRect(ctx, bx, 855, 265, 48, 24);
       ctx.fillStyle = '#FFFFFF';
       ctx.fill();
-      ctx.strokeStyle = 'rgba(15, 23, 42, 0.08)';
+      ctx.strokeStyle = 'rgba(15, 23, 42, 0.1)';
       ctx.stroke();
 
       ctx.fillStyle = b.color;
-      ctx.font = 'bold 18px "Inter", sans-serif';
-      ctx.fillText(`✓ ${b.text}`, bx + 24, 882);
-      bx += 260;
+      ctx.font = 'bold 16px "Inter", sans-serif';
+      ctx.fillText(`✓ ${b.text}`, bx + 18, 885);
+      bx += 280;
     }
 
     ctx.fillStyle = '#94A3B8';
-    ctx.font = '500 16px "Inter", sans-serif';
-    ctx.fillText('Проект открытого городского комьюнити «Взрослые» • 2026', 80, 1060);
+    ctx.font = '500 15px "Inter", sans-serif';
+    ctx.fillText('Проект открытого городского комьюнити «Взрослые» • Для организаторов и аудитории • 2026', 80, 1060);
   }
 
-  // Слайд 2: Проблема и Решение (Контраст)
+  // Слайд 2: Взрослые треки (СНАЧАЛА ТРЕКИ!)
   if (slideNumber === 2) {
     ctx.fillStyle = '#0F172A';
-    ctx.font = '800 38px "Unbounded", sans-serif';
-    ctx.fillText('Главная боль: Молодым родителям негде тусоваться', 80, 160);
+    ctx.font = '800 34px "Unbounded", sans-serif';
+    ctx.fillText('Взрослые параллельные треки & свободный чай', 80, 150);
 
-    // Карточка 1: Проблема
-    roundRect(ctx, 80, 200, 690, 680, 24);
-    ctx.fillStyle = '#FFFFFF';
-    ctx.fill();
-    ctx.strokeStyle = 'rgba(239, 68, 68, 0.3)';
-    ctx.lineWidth = 2;
-    ctx.stroke();
-
-    roundRect(ctx, 110, 230, 220, 36, 18);
-    ctx.fillStyle = 'rgba(239, 68, 68, 0.1)';
-    ctx.fill();
-    ctx.fillStyle = '#DC2626';
-    ctx.font = 'bold 16px "Inter", sans-serif';
-    ctx.fillText('✕ КАК ОБЫЧНО В ГОРОДЕ', 125, 254);
-
-    ctx.fillStyle = '#0F172A';
-    ctx.font = 'bold 24px "Inter", sans-serif';
-    ctx.fillText('Изоляция, день сурка и чужие взгляды', 110, 310);
-
-    const problemPoints = [
-      '• Бары и модные места: не пройдёшь с коляской, громко,',
-      '  ловишь раздражение окружающих.',
-      '• Кофейни: страх, что ребёнок уронит чашку или заплачет.',
-      '• Традиционные клубы: душные советы из 90-х, разговоры',
-      '  исключительно о смесях и коликах.',
-      '• Друзья без детей постепенно отдаляются, потому что',
-      '  не понимают сложностей с ребёнком.',
-      '• Итог: родители сидят дома в 4 стенах и теряют себя.'
-    ];
-    let py = 360;
-    ctx.fillStyle = '#475569';
-    ctx.font = '400 20px "Inter", sans-serif';
-    for (const p of problemPoints) {
-      ctx.fillText(p, 110, py);
-      py += 44;
-    }
-
-    // Карточка 2: Решение во «Взрослых»
-    roundRect(ctx, 830, 200, 690, 680, 24);
-    ctx.fillStyle = '#FFFFFF';
-    ctx.fill();
-    ctx.strokeStyle = 'rgba(5, 150, 105, 0.4)';
-    ctx.lineWidth = 2;
-    ctx.stroke();
-
-    roundRect(ctx, 860, 230, 250, 36, 18);
-    ctx.fillStyle = 'rgba(5, 150, 105, 0.12)';
-    ctx.fill();
-    ctx.fillStyle = '#059669';
-    ctx.font = 'bold 16px "Inter", sans-serif';
-    ctx.fillText('✓ ПРОСТРАНСТВО «ВЗРОСЛЫЕ»', 875, 254);
-
-    ctx.fillStyle = '#0F172A';
-    ctx.font = 'bold 24px "Inter", sans-serif';
-    ctx.fillText('С детьми тусоваться — это новый стиль', 860, 310);
-
-    const solutionPoints = [
-      '• Дети рядом: открытое зонирование, без тревоги и стресса.',
-      '• Настоящий крафт: мастер театра народов учит детей',
-      '  лепке из глины, работе по дереву и театру теней.',
-      '• Родители свободны: 2 часа в неделю за фильтр-кофе,',
-      '  настолками, карьерой и живым общением.',
-      '• Без детей тоже можно: пары и соло находят компанию',
-      '  с открытым взглядом на жизнь.',
-      '• 0% шейминга: безопасное пространство без токсичности.'
-    ];
-    let sy = 360;
-    ctx.fillStyle = '#334155';
-    ctx.font = '400 20px "Inter", sans-serif';
-    for (const s of solutionPoints) {
-      ctx.fillText(s, 860, sy);
-      sy += 44;
-    }
-
-    // Нижняя плашка
-    roundRect(ctx, 80, 920, width - 160, 110, 20);
-    ctx.fillStyle = '#0F172A';
-    ctx.fill();
-    ctx.fillStyle = '#FFFFFF';
-    ctx.font = 'bold 22px "Inter", sans-serif';
-    ctx.fillText('Главный посыл: мы помогаем молодым родителям не выпадать из жизни,', 120, 965);
     ctx.fillStyle = '#FF5733';
-    ctx.fillText('а превратить родительство в модный, классный и разделяемый опыт.', 120, 1000);
-  }
-
-  // Слайд 3: 4 Трека & Детская мастерская
-  if (slideNumber === 3) {
-    ctx.fillStyle = '#0F172A';
-    ctx.font = '800 38px "Unbounded", sans-serif';
-    ctx.fillText('Что происходит во время встречи (2 часа)', 80, 160);
+    ctx.font = '600 19px "Inter", sans-serif';
+    ctx.fillText('Треки идут не по очереди, а параллельно в разных зонах зала • Параллельно работает чай и свободное общение', 80, 185);
 
     const tracks = [
       {
         num: '01',
+        tag: 'CARE',
         title: 'Менталка & Ресурс',
-        desc: 'Выдохнуть, снять маску «идеального родителя», обсудить границы, усталость и найти поддержку среди сверстников.'
+        bullets: [
+          '• Выдохнуть и сбросить маску «идеального родителя»',
+          '• Экологичные границы со старшими родственниками',
+          '• Профилактика родительского и рабочего выгорания',
+          '• Безопасный круг взаимной поддержки без шейминга'
+        ]
       },
       {
         num: '02',
-        title: 'Карьера & Пет-проекты',
-        desc: 'Как совмещать работу, фриланс и семью. Нетворкинг, поиск коллабораций и вдохновения для личного роста.'
+        tag: 'PRO',
+        title: 'Своё дело, фриланс & финансы',
+        bullets: [
+          '• Удалёнка и pet-проекты в декрете без перегруза',
+          '• Финансовая грамотность и семейный бюджет без ссор',
+          '• Поиск заказчиков, коллабораций и первых клиентов',
+          '• Mastermind: честный разбор идей участников'
+        ]
       },
       {
         num: '03',
-        title: 'Коворкинг, Настолки & Чай',
-        desc: 'Спешелти-чай, фильтр-кофе, любимые настольные игры или тихий угол для ноутбука в уютной атмосфере.'
+        tag: 'DADS',
+        title: 'Отцы новой волны',
+        bullets: [
+          '• Честный мужской диалог об отцовстве нового поколения',
+          '• Баланс карьеры, дохода и времени с ребёнком',
+          '• Партнёрство: делим быт пополам без конфликтов',
+          '• Сообщество отцов без токсичности и поучений'
+        ]
       },
       {
         num: '04',
-        title: 'Молодое родительство без духоты',
-        desc: 'Обмен реальными современными лайфхаками без нравоучений. Вовлечённое отцовство и партнёрский быт.'
+        tag: 'CHILL',
+        title: 'Чайная зона, настолки & коворкинг',
+        bullets: [
+          '• Спешелти-чайная станция, самовар и фильтр-кофе',
+          '• Параллельный формат: свободное общение нон-стоп',
+          '• Тихий коворкинг и современные настолки',
+          '• Свобода молчать: можно просто отдохнуть в наушниках'
+        ]
       }
     ];
 
-    let tx = 80;
-    let ty = 210;
     tracks.forEach((t, i) => {
       const col = i % 2;
       const row = Math.floor(i / 2);
       const x = 80 + col * 730;
-      const y = 210 + row * 260;
+      const y = 220 + row * 340;
 
-      roundRect(ctx, x, y, 700, 230, 20);
+      roundRect(ctx, x, y, 700, 310, 20);
       ctx.fillStyle = '#FFFFFF';
       ctx.fill();
       ctx.strokeStyle = 'rgba(15, 23, 42, 0.08)';
@@ -295,109 +262,269 @@ function createSlideCanvas(slideNumber: number): HTMLCanvasElement {
 
       ctx.fillStyle = '#FF5733';
       ctx.font = 'bold 20px "Unbounded", sans-serif';
-      ctx.fillText(t.num, x + 30, y + 50);
+      ctx.fillText(t.num, x + 30, y + 45);
+
+      roundRect(ctx, x + 75, y + 25, 80, 26, 13);
+      ctx.fillStyle = 'rgba(255, 87, 51, 0.1)';
+      ctx.fill();
+      ctx.fillStyle = '#FF5733';
+      ctx.font = 'bold 12px "Inter", sans-serif';
+      ctx.fillText(t.tag, x + 95, y + 42);
 
       ctx.fillStyle = '#0F172A';
       ctx.font = 'bold 24px "Inter", sans-serif';
-      ctx.fillText(t.title, x + 85, y + 50);
+      ctx.fillText(t.title, x + 30, y + 90);
 
       ctx.fillStyle = '#475569';
-      ctx.font = '400 19px "Inter", sans-serif';
-      // Оборачиваем текст
-      ctx.fillText(t.desc, x + 30, y + 95, 640);
+      ctx.font = '400 18px "Inter", sans-serif';
+      let by = y + 135;
+      t.bullets.forEach(b => {
+        ctx.fillText(b, x + 30, by);
+        by += 38;
+      });
     });
 
-    // Блок мастерской для детей внизу
-    roundRect(ctx, 80, 750, width - 160, 280, 22);
+    roundRect(ctx, 80, 930, width - 160, 90, 18);
+    ctx.fillStyle = '#0F172A';
+    ctx.fill();
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = '600 20px "Inter", sans-serif';
+    ctx.fillText('☕ Принцип свободного пространства: треки идут параллельно, чайная станция и общение открыты весь вечер.', 110, 982);
+  }
+
+  // Слайд 3: Детская мастерская + Сегментация аудитории
+  if (slideNumber === 3) {
+    ctx.fillStyle = '#0F172A';
+    ctx.font = '800 34px "Unbounded", sans-serif';
+    ctx.fillText('Ремёсла, уроки труда & Сегменты аудитории', 80, 150);
+
     ctx.fillStyle = '#059669';
+    ctx.font = '600 19px "Inter", sans-serif';
+    ctx.fillText('Иммерсивный театр народов России • Культурный код: уважение и созидательный труд руками', 80, 185);
+
+    // Левая карточка: Детская мастерская ремёсел
+    roundRect(ctx, 80, 220, 690, 780, 24);
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(5, 150, 105, 0.3)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    roundRect(ctx, 110, 250, 390, 36, 18);
+    ctx.fillStyle = 'rgba(5, 150, 105, 0.12)';
+    ctx.fill();
+    ctx.fillStyle = '#059669';
+    ctx.font = 'bold 14px "Inter", sans-serif';
+    ctx.fillText('🎨 РЕМЁСЛА & УРОКИ ТРУДА (0+)', 125, 274);
+
+    ctx.fillStyle = '#0F172A';
+    ctx.font = 'bold 24px "Inter", sans-serif';
+    ctx.fillText('Иммерсивный театр народов России', 110, 325);
+
+    const kidsBullets = [
+      '• Наставники: Семейные мастера театра и педагоги.',
+      '• Уроки прикладного труда: скворечники, кормушки,',
+      '  полезные бытовые навыки (узлы, пришить пуговицу).',
+      '• Традиционные ремёсла: глина, береста, ткачество,',
+      '  театр теней и живые народные сказки.',
+      '• Разделение по зонам: дети переходят в открытую',
+      '  мастерскую, а родители — в треки общения.',
+      '• Родитель в 5 метрах: никакой тревоги разлуки.',
+      '• Без экранов и гаджетов: радость созидания руками.'
+    ];
+
+    let ky = 370;
+    ctx.fillStyle = '#334155';
+    ctx.font = '400 18px "Inter", sans-serif';
+    kidsBullets.forEach(b => {
+      ctx.fillText(b, 110, ky);
+      ky += 43;
+    });
+
+    // Правая колонка: Иерархия аудитории (3 группы)
+    const audienceGroups = [
+      {
+        badge: 'АКЦЕНТ №1 • ГЛАВНЫЙ ФОКУС',
+        title: '1. Родители с детьми (18–35 лет)',
+        lines: [
+          'Приходят вместе с ребёнком (0+). Не нужно искать няню или сидеть дома.',
+          'Дети увлечены крафтом рядом, а родители стильно отдыхают и общаются.',
+          'Показываем: с детьми тусоваться — это модно, современно и красиво.'
+        ],
+        color: '#FF5733',
+        bg: 'rgba(255, 87, 51, 0.1)'
+      },
+      {
+        badge: 'АКЦЕНТ №2 • ВЫДОХНУТЬ',
+        title: '2. Родители отдельно (соло или пара)',
+        lines: [
+          'Ребёнок остался дома со вторым родителем или бабушкой.',
+          'Возможность на 2 часа перезагрузиться, выпить горячий кофе,',
+          'поговорить на взрослые темы и заняться своими проектами.'
+        ],
+        color: '#059669',
+        bg: 'rgba(5, 150, 105, 0.1)'
+      },
+      {
+        badge: 'АКЦЕНТ №3 • КТО ХОЧЕТ СЕМЬЮ',
+        title: '3. Соло и пары без детей',
+        lines: [
+          'Те, у кого ещё нет семьи, но кто хочет создать семью и детей.',
+          'Зрелое, открытое окружение со схожими ценностями без давления,',
+          'поверхностных дейтинг-приложений и стереотипов.'
+        ],
+        color: '#6366F1',
+        bg: 'rgba(99, 102, 241, 0.1)'
+      }
+    ];
+
+    let ay = 220;
+    audienceGroups.forEach(ag => {
+      roundRect(ctx, 810, ay, 710, 240, 20);
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(15, 23, 42, 0.08)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      roundRect(ctx, 835, ay + 20, 290, 30, 15);
+      ctx.fillStyle = ag.bg;
+      ctx.fill();
+      ctx.fillStyle = ag.color;
+      ctx.font = 'bold 13px "Inter", sans-serif';
+      ctx.fillText(ag.badge, 850, ay + 40);
+
+      ctx.fillStyle = '#0F172A';
+      ctx.font = 'bold 22px "Inter", sans-serif';
+      ctx.fillText(ag.title, 835, ay + 82);
+
+      ctx.fillStyle = '#475569';
+      ctx.font = '400 17px "Inter", sans-serif';
+      let ly = ay + 118;
+      ag.lines.forEach(line => {
+        ctx.fillText(line, 835, ly);
+        ly += 26;
+      });
+
+      ay += 270;
+    });
+  }
+
+  // Слайд 4: Для организаторов: Запуск на площадке & Метрики
+  if (slideNumber === 4) {
+    ctx.fillStyle = '#0F172A';
+    ctx.font = '800 36px "Unbounded", sans-serif';
+    ctx.fillText('Для организаторов: Запуск слота & Метрики успеха', 80, 150);
+
+    ctx.fillStyle = '#FF5733';
+    ctx.font = '600 20px "Inter", sans-serif';
+    ctx.fillText('Готовая модель запуска регулярного слота в молодёжном центре или арт-пространстве', 80, 185);
+
+    // Блок 1: Что нужно для запуска
+    roundRect(ctx, 80, 220, 460, 480, 20);
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(15, 23, 42, 0.08)';
+    ctx.stroke();
+
+    ctx.fillStyle = '#0F172A';
+    ctx.font = 'bold 22px "Inter", sans-serif';
+    ctx.fillText('📦 Модель запуска («Молодёжь Москвы»)', 105, 265);
+
+    const reqs = [
+      '• Открытый зал с зонированием',
+      '• Чайная станция и столы для общения',
+      '• Столы для прикладного труда и ремёсел',
+      '• Семейные наставники театра народов',
+      '• Ведущие треков (психологи, фаундеры)',
+      '• Эко-материалы (глина, береста, чай)'
+    ];
+    let ry = 315;
+    ctx.fillStyle = '#475569';
+    ctx.font = '400 18px "Inter", sans-serif';
+    reqs.forEach(r => {
+      ctx.fillText(r, 105, ry);
+      ry += 42;
+    });
+
+    // Блок 2: План запуска за 4 недели
+    roundRect(ctx, 570, 220, 470, 480, 20);
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(15, 23, 42, 0.08)';
+    ctx.stroke();
+
+    ctx.fillStyle = '#0F172A';
+    ctx.font = 'bold 22px "Inter", sans-serif';
+    ctx.fillText('🗓️ План старта (4 недели)', 600, 265);
+
+    const weeks = [
+      'Н1: Анкета запросов в Telegram-каналах',
+      'Н2: Подготовка зонирования и мастера',
+      'Н3: Пилотная встреча «Взрослые» (2 ч)',
+      'Н4: Ретроспектива и еженедельный график'
+    ];
+    let wy = 320;
+    weeks.forEach((w, idx) => {
+      roundRect(ctx, 600, wy - 22, 410, 60, 12);
+      ctx.fillStyle = '#F8F9FC';
+      ctx.fill();
+
+      ctx.fillStyle = '#0F172A';
+      ctx.font = '500 17px "Inter", sans-serif';
+      ctx.fillText(w, 615, wy + 14);
+      wy += 85;
+    });
+
+    // Блок 3: Ключевые показатели (Метрики)
+    roundRect(ctx, 1070, 220, 450, 480, 20);
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(15, 23, 42, 0.08)';
+    ctx.stroke();
+
+    ctx.fillStyle = '#0F172A';
+    ctx.font = 'bold 22px "Inter", sans-serif';
+    ctx.fillText('📊 Ориентиры слота', 1100, 265);
+
+    const metricsData = [
+      { v: '12–18', l: 'участников на встрече' },
+      { v: '75%', l: 'возвращаемость в клуб' },
+      { v: '0 ₽', l: 'вход для аудитории' },
+      { v: '1 раз', l: 'в месяц детская выставка' }
+    ];
+    let my = 330;
+    metricsData.forEach(m => {
+      ctx.fillStyle = '#FF5733';
+      ctx.font = 'bold 30px "Unbounded", sans-serif';
+      ctx.fillText(m.v, 1100, my);
+
+      ctx.fillStyle = '#64748B';
+      ctx.font = '500 16px "Inter", sans-serif';
+      ctx.fillText(m.l, 1100, my + 30);
+      my += 85;
+    });
+
+    // Нижняя плашка контактов
+    roundRect(ctx, 80, 740, width - 160, 270, 22);
+    ctx.fillStyle = '#0F172A';
     ctx.fill();
 
     ctx.fillStyle = '#FFFFFF';
     ctx.font = 'bold 28px "Unbounded", sans-serif';
-    ctx.fillText('Детская мастерская: Театр народов и тактильный крафт', 120, 810);
-
-    ctx.font = '400 20px "Inter", sans-serif';
-    ctx.fillText('Пока взрослые общаются, дети от 0+ находятся рядом с наставником театра:', 120, 860);
-    ctx.fillText('• Никаких экранов и мультиков: только глина, войлок, дерево и театр теней', 120, 900);
-    ctx.fillText('• Безопасное открытое пространство: дети всегда в поле зрения родителей', 120, 940);
-    ctx.fillText('• Ежемесячные выставки крафтовых шедевров и совместные показы сказок', 120, 980);
-  }
-
-  // Слайд 4: Для кого, План на 4 недели & Контакты
-  if (slideNumber === 4) {
-    ctx.fillStyle = '#0F172A';
-    ctx.font = '800 38px "Unbounded", sans-serif';
-    ctx.fillText('Для кого создано комьюнити & Как подключиться', 80, 160);
-
-    // Сетка целевой аудитории
-    const groups = [
-      { t: 'Молодые мамы (18–35)', d: 'Кому нужен выход из рутины, горячий чай и взрослое общение.' },
-      { t: 'Отцы новой волны (18–35)', d: 'Вовлечённые, стильные папы: проводят время с детьми и друзьями.' },
-      { t: 'Пары и соло без детей', d: 'Ищут тёплое сообщество, настолки, спешелти-чай и нетворкинг.' },
-      { t: 'Фрилансеры & креаторы', d: 'Возможность поработать за ноутбуком с чаем, пока дети заняты.' }
-    ];
-
-    let gx = 80;
-    groups.forEach((g) => {
-      roundRect(ctx, gx, 210, 340, 220, 18);
-      ctx.fillStyle = '#FFFFFF';
-      ctx.fill();
-      ctx.strokeStyle = 'rgba(15, 23, 42, 0.08)';
-      ctx.stroke();
-
-      ctx.fillStyle = '#0F172A';
-      ctx.font = 'bold 20px "Inter", sans-serif';
-      ctx.fillText(g.t, gx + 20, 260);
-
-      ctx.fillStyle = '#64748B';
-      ctx.font = '400 17px "Inter", sans-serif';
-      ctx.fillText(g.d, gx + 20, 305, 300);
-
-      gx += 365;
-    });
-
-    // Нижний блок: Контакты и старт
-    roundRect(ctx, 80, 480, width - 160, 520, 24);
-    ctx.fillStyle = '#FFFFFF';
-    ctx.fill();
-    ctx.strokeStyle = 'rgba(255, 87, 51, 0.3)';
-    ctx.lineWidth = 2;
-    ctx.stroke();
-
-    ctx.fillStyle = '#0F172A';
-    ctx.font = 'bold 30px "Unbounded", sans-serif';
-    ctx.fillText('Приходи во «Взрослые»: каждый четверг, 18:30–20:30', 120, 550);
-
-    ctx.fillStyle = '#475569';
-    ctx.font = '500 22px "Inter", sans-serif';
-    ctx.fillText('Вход 100% свободный • Чай, кофе и все материалы для детей включены', 120, 600);
-
-    // Дорожная карта мини
-    const steps = [
-      '1. Заполни короткую анкету (4 вопроса в Telegram или на сайте)',
-      '2. Получи подтверждение и приглашение на ближайший четверг',
-      '3. Приходи с ребёнком, парой или соло — здесь сразу познакомят и нальют чай',
-      '4. Становись частью комьюнити, предлагай свои проекты и темы треков'
-    ];
-    let stepY = 660;
-    ctx.fillStyle = '#1E293B';
-    ctx.font = '500 20px "Inter", sans-serif';
-    for (const st of steps) {
-      ctx.fillText(st, 120, stepY);
-      stepY += 46;
-    }
-
-    // Кнопка-ссылка
-    roundRect(ctx, 120, 870, 480, 64, 32);
-    ctx.fillStyle = '#FF5733';
-    ctx.fill();
-    ctx.fillStyle = '#FFFFFF';
-    ctx.font = 'bold 22px "Inter", sans-serif';
-    ctx.fillText('Telegram: @adults_space', 210, 910);
+    ctx.fillText('Готовы запустить комьюнити на вашей площадке?', 120, 805);
 
     ctx.fillStyle = '#94A3B8';
-    ctx.font = '500 18px "Inter", sans-serif';
-    ctx.fillText('Вопросы и партнёрства: hello@vzroslye.space', 640, 910);
+    ctx.font = '400 20px "Inter", sans-serif';
+    ctx.fillText('Проект легко интегрируется в график молодёжного центра или креативного кластера.', 120, 850);
+
+    ctx.fillStyle = '#FF5733';
+    ctx.font = 'bold 22px "Inter", sans-serif';
+    ctx.fillText('Telegram кураторов: @adults_space • Вопросы: hello@vzroslye.space', 120, 910);
+
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = '600 18px "Inter", sans-serif';
+    ctx.fillText('Встречи проходят каждый четверг, 18:00–20:00 • 100% бесплатно', 120, 960);
   }
 
   return canvas;
