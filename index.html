@@ -600,74 +600,141 @@
 
     .compare-card {
       border-radius: var(--radius-lg);
-      padding: 32px;
+      padding: 28px;
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: transform 0.2s ease;
     }
 
     .compare-card.problem {
-      background: var(--bg-card);
-      border: 1px dashed var(--border-color);
-      opacity: 0.85;
+      background: rgba(239, 68, 68, 0.04);
+      border: 2px dashed rgba(239, 68, 68, 0.4);
     }
 
     .compare-card.solution {
-      background: linear-gradient(145deg, var(--bg-card), var(--bg-card-secondary));
-      border: 2px solid var(--color-terracotta);
+      background: rgba(5, 150, 105, 0.04);
+      border: 2px solid var(--color-green-light);
       position: relative;
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 8px 24px rgba(5, 150, 105, 0.1);
     }
 
     .compare-badge {
-      display: inline-block;
-      padding: 4px 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
       border-radius: var(--radius-pill);
-      font-size: 0.8rem;
-      font-weight: 700;
-      margin-bottom: 16px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      margin-bottom: 14px;
       width: fit-content;
     }
 
     .problem-badge {
-      background: rgba(168, 161, 150, 0.15);
-      color: var(--text-dim);
+      background: rgba(239, 68, 68, 0.15);
+      color: #DC2626;
+      border: 1px solid rgba(239, 68, 68, 0.3);
     }
 
     .solution-badge {
-      background: var(--color-terracotta);
-      color: #fff;
+      background: var(--color-green-light);
+      color: #FFFFFF;
+      box-shadow: 0 2px 10px rgba(5, 150, 105, 0.3);
     }
 
     .compare-title {
-      font-size: 1.4rem;
-      margin-bottom: 14px;
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .compare-card.problem .compare-title {
+      color: #B91C1C;
+    }
+
+    .compare-card.solution .compare-title {
+      color: var(--text-main);
     }
 
     .compare-text {
       color: var(--text-muted);
-      font-size: 1rem;
-      line-height: 1.6;
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .compare-arrow-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 0 auto;
+    }
+
+    .compare-arrow-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+      white-space: nowrap;
     }
 
     .compare-arrow {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 48px;
-      height: 48px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
-      background: var(--bg-card-secondary);
-      border: 1px solid var(--border-color);
-      color: var(--color-ochre);
-      margin: 0 auto;
+      background: linear-gradient(135deg, var(--color-terracotta), var(--color-ochre));
+      color: #FFFFFF;
+      box-shadow: 0 6px 20px rgba(224, 90, 58, 0.4);
+      flex-shrink: 0;
+      animation: pulse-arrow 2.5s infinite ease-in-out;
+    }
+
+    @keyframes pulse-arrow {
+      0%, 100% { transform: scale(1); box-shadow: 0 6px 20px rgba(224, 90, 58, 0.4); }
+      50% { transform: scale(1.08); box-shadow: 0 8px 26px rgba(224, 90, 58, 0.6); }
     }
 
     @media (max-width: 767px) {
       .compare-arrow svg {
         transform: rotate(90deg);
       }
+    }
+
+    .track-expand-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(224, 90, 58, 0.12);
+      color: var(--color-terracotta);
+      border: 1px solid rgba(224, 90, 58, 0.25);
+      margin-top: 8px;
+      width: fit-content;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+
+    .track-card:hover .track-expand-hint {
+      background: var(--color-terracotta);
+      color: #fff;
+    }
+
+    .track-card.expanded .track-expand-hint {
+      background: rgba(5, 150, 105, 0.14);
+      color: var(--color-green-light);
+      border-color: rgba(5, 150, 105, 0.3);
     }
 
     /* ==========================================================================
@@ -966,6 +1033,79 @@
     .timeline-card-desc {
       font-size: 0.95rem;
       color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       7A. ИТОГО 3 ЗОНЫ ПРОСТРАНСТВА & РОТАЦИЯ ТРЕКОВ
+       ========================================================================== */
+    .zones-overview-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (min-width: 900px) {
+      .zones-overview-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .zone-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: all 0.25s ease;
+    }
+
+    .zone-box:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .zone-box.active-track-zone {
+      border-color: var(--color-terracotta);
+      background: linear-gradient(180deg, rgba(224, 90, 58, 0.06) 0%, var(--bg-card) 100%);
+    }
+
+    .zone-box.active-free-zone {
+      border-color: var(--color-ochre);
+      background: linear-gradient(180deg, rgba(217, 119, 6, 0.06) 0%, var(--bg-card) 100%);
+    }
+
+    .zone-box.active-kids-zone {
+      border-color: var(--color-green-light);
+      background: linear-gradient(180deg, rgba(5, 150, 105, 0.06) 0%, var(--bg-card) 100%);
+    }
+
+    .zone-badge-num {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: 9999px;
+      padding: 3px 10px;
+      width: fit-content;
+    }
+
+    .rotation-schedule-strip {
+      background: var(--bg-card);
+      border: 1px dashed var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
     }
 
     /* ==========================================================================
@@ -2058,7 +2198,7 @@
           <h1 class="hero-title">ВЗРОСЛЫЕ</h1>
           <p class="hero-subtitle">Культурный код: воспитание через уважение и созидательный труд руками. Наставники: Семейные</p>
           <p class="hero-text">
-            Городское комьюнити для зумеров 18–35 лет. Разделение по зонам: дети переходят в открытую мастерскую народных ремёсел и созидательного труда руками, а взрослые выбирают свой трек общения либо параллельно пьют чай и свободно общаются без давления.
+            Городское комьюнити для зумеров 18–35 лет. <strong>Итого три зоны пространства:</strong> тематический трек дня (взрослые треки сменяют друг друга по очереди — один трек в день), параллельно свободная зона с чаем и нетворкингом, а в 5 метрах — детская открытая мастерская созидательного труда.
           </p>
 
           <div class="hero-buttons">
@@ -2137,23 +2277,23 @@
           <div class="organizer-card">
             <span class="organizer-card-badge">02 • Проблема</span>
             <h3 class="organizer-card-title">Какая проблема</h3>
-            <p class="organizer-card-lead">Изоляция молодых родителей и отсутствие комфортного третьего места для семейных зумеров.</p>
+            <p class="organizer-card-lead">Изоляция молодых родителей и отсутствие третьего места для семейных зумеров.</p>
             <ul class="organizer-card-list">
-              <li><strong>С детьми негде тусоваться:</strong> в барах шумно, в кофейнях косятся, дома — день сурка.</li>
-              <li><strong>Одиночество соло-зумеров:</strong> трудно встретить осознанных людей для создания крепкой семьи.</li>
-              <li><strong>Засилье экранов:</strong> детям не хватает живого ручного труда, тактильности и моторики.</li>
+              <li><strong>Родителям негде быть:</strong> в кафе неловко с коляской, в бары с детьми не пойдёшь.</li>
+              <li><strong>Соло 18–35 лет:</strong> в дейтингах поверхностный свайп, негде встретить осознанных людей для семьи.</li>
+              <li><strong>Дети сидят в смартфонах:</strong> часами смотрят мультики, не хватает живого созидательного труда руками.</li>
             </ul>
           </div>
 
           <!-- 3. Зачем и цель -->
           <div class="organizer-card">
             <span class="organizer-card-badge">03 • Площадка & Формат</span>
-            <h3 class="organizer-card-title">Пример: «Молодёжь Москвы»</h3>
-            <p class="organizer-card-lead">Инфраструктура современных городских центров: открытый коворкинг, столы для труда и чайная зона.</p>
+            <h3 class="organizer-card-title">Итого три зоны зала (модель «Молодёжь Москвы»)</h3>
+            <p class="organizer-card-lead">Инфраструктура открытого коворкинга, мастерской и чайной зоны:</p>
             <ul class="organizer-card-list">
-              <li><strong>Слот 2 часа в неделю:</strong> каждый четверг (18:00–20:00), 100% бесплатно для всех.</li>
-              <li><strong>Разделение по зонам:</strong> дети переходят в открытую мастерскую, взрослые выбирают свой трек общения либо параллельно чай и свободное общение.</li>
-              <li><strong>Комьюнити:</strong> молодые семьи, соло и пары, кто хочет создать крепкую семью.</li>
+              <li><strong>1. Зона трека:</strong> взрослые треки сменяют друг друга по очереди — один трек в день по расписанию.</li>
+              <li><strong>2. Свободная зона:</strong> параллельно работает весь вечер — чай, настолки, коворкинг и нетворкинг.</li>
+              <li><strong>3. Детская зона:</strong> открытая мастерская прикладной робототехники и ремёсел в 5 метрах от родителей.</li>
             </ul>
           </div>
         </div>
@@ -2187,9 +2327,9 @@
               <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(5, 150, 105, 0.1); color: var(--color-green-light); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 12px;">
                 🧠
               </div>
-              <h4 style="font-size: 1.1rem; margin-bottom: 6px; color: var(--text-main);">Педагоги и семейные психологи</h4>
+              <h4 style="font-size: 1.1rem; margin-bottom: 6px; color: var(--text-main);">Педагоги и психологи</h4>
               <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin: 0;">
-                Бережно модерируют трек «Менталка & Ресурс»: снятие родительской тревожности, личные границы и экологичное взросление детей.
+                Модерируют трек «Спокойствие & отдых»: убирают родительскую тревожность, помогают выставить границы со старшими и выдохнуть.
               </p>
             </div>
 
@@ -2198,9 +2338,9 @@
               <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(245, 158, 11, 0.1); color: var(--color-ochre); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 12px;">
                 💼
               </div>
-              <h4 style="font-size: 1.1rem; margin-bottom: 6px; color: var(--text-main);">Предприниматели и эксперты</h4>
+              <h4 style="font-size: 1.1rem; margin-bottom: 6px; color: var(--text-main);">Предприниматели и IT-фаундеры</h4>
               <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin: 0;">
-                Ведут трек «Своё дело & бюджет»: запуск проектов, самозанятость, фриланс с детьми на руках и подушка безопасности без иллюзий.
+                Ведут трек «Своё дело, IT & бюджет»: запуск pet-проектов, удалёнка с детьми на руках и подушка безопасности без иллюзий.
               </p>
             </div>
 
@@ -2211,7 +2351,7 @@
               </div>
               <h4 style="font-size: 1.1rem; margin-bottom: 6px; color: var(--text-main);">Опытные родители</h4>
               <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin: 0;">
-                Мамы и папы с реальным опытом воспитания нескольких детей. Делятся проверенными лайфхаками без нравоучений и белого пальто.
+                Мамы и папы со стажем воспитания. Делятся проверенными лайфхаками без нравоучений, духоты и белого пальто.
               </p>
             </div>
           </div>
@@ -2219,41 +2359,49 @@
 
         <!-- Манифест Сравнения (Было vs Стало) -->
         <div class="compare-grid reveal" style="margin-top: 36px;">
-          <!-- Слева: Как обычно -->
+          <!-- Слева: ПЛОХО (Как сейчас) -->
           <div class="compare-card problem">
             <div>
-              <span class="compare-badge problem-badge">✕ Как обычно: негде тусоваться</span>
-              <h3 class="compare-title">Бары не для детей, в кофейнях косятся, дома — изоляция</h3>
+              <span class="compare-badge problem-badge">❌ ПЛОХО: Реальность в городе сейчас</span>
+              <h3 class="compare-title">Заперты дома в четырёх стенах, а соло свайпают впустую</h3>
               <p class="compare-text">
-                С коляской неудобно, в кофейнях боишься детского шума, а в традиционных клубах — нафталин. В итоге родители заперты в четырёх стенах и теряют привычный круг общения.
+                • <strong>С коляской:</strong> в кофейне чувствуешь себя неловко из-за шума, в бары не пойдёшь — тупо сидишь дома и ловишь день сурка.<br>
+                • <strong>Соло 18–35:</strong> в дейтингах сплошной поверхностный свайп, негде встретить осознанных людей для семьи.<br>
+                • <strong>Дети:</strong> сидят в смартфонах часами с мультиками, потому что нет живой интересной альтернативы.
               </p>
             </div>
-            <div style="margin-top: 20px; font-size: 0.88rem; color: var(--text-dim); display: flex; align-items: center; gap: 8px;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-              Изоляция и стереотип «жизнь на паузе»
+            <div style="margin-top: 20px; font-size: 0.88rem; color: #DC2626; font-weight: 700; display: flex; align-items: center; gap: 8px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              Итог: одиночество, изоляция и дети в смартфонах
             </div>
           </div>
 
-          <!-- Стрелка перехода -->
-          <div class="compare-arrow" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14"/>
-              <path d="m12 5 7 7-7 7"/>
-            </svg>
+          <!-- Чёткая контрастная стрелка перехода -->
+          <div class="compare-arrow-wrap" aria-label="Переход от проблемы к решению">
+            <span class="compare-arrow-label">Выход есть</span>
+            <div class="compare-arrow" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+              </svg>
+            </div>
+            <span class="compare-arrow-label" style="color: var(--color-green-light); font-size: 0.72rem;">Сюда ➔</span>
           </div>
 
-          <!-- Справа: Пространство Взрослые -->
+          <!-- Справа: ХОРОШО (Пространство Взрослые) -->
           <div class="compare-card solution">
             <div>
-              <span class="compare-badge solution-badge">✓ Пространство «Взрослые»</span>
-              <h3 class="compare-title">Семейные ценности, ремёсла, уроки труда и живое комьюнити</h3>
+              <span class="compare-badge solution-badge">✅ ХОРОШО: Пространство «Взрослые»</span>
+              <h3 class="compare-title">Дети увлечены делом, ты выдыхаешь и развиваешься</h3>
               <p class="compare-text">
-                Проект Театра народов России: дети рядом пилят, строгают и лепят с мастером. Ты спокоен, пьёшь спешелти-чай, разбираешь стартапы с предпринимателями и общаешься с психологами.
+                • <strong>Дети в 5 метрах:</strong> робототехника, народные ремёсла, созидательный труд руками без смартфонов.<br>
+                • <strong>Взрослые рядом:</strong> театр, кулинария, IT-проекты, выставки или спешелти-чай без духоты.<br>
+                • <strong>Для всех:</strong> бесплатный вход, свои люди, комфорт по примеру пространств «Молодёжь Москвы».
               </p>
             </div>
-            <div style="margin-top: 20px; font-size: 0.92rem; color: var(--color-ochre); font-weight: 600; display: flex; align-items: center; gap: 8px;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Формат «Молодёжи Москвы»: дети увлечены трудом, взрослые развиваются
+            <div style="margin-top: 20px; font-size: 0.92rem; color: var(--color-green-light); font-weight: 700; display: flex; align-items: center; gap: 8px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Итог: живые друзья, развитие и спокойствие
             </div>
           </div>
         </div>
@@ -2261,32 +2409,108 @@
     </section>
 
     <!-- ==========================================================================
-         3. ВЗРОСЛЫЕ ТРЕКИ (СНАЧАЛА ЧЕМ ЗАНЯТЫ ВЗРОСЛЫЕ!)
+         3. ВЗРОСЛЫЕ ТРЕКИ & 3 ЗОНЫ ПРОСТРАНСТВА
          ========================================================================== -->
     <section id="tracks">
       <div class="container">
         <div class="section-header reveal">
-          <span class="section-tag">Взрослые треки & Свободный чай</span>
-          <h2 class="section-title">Чем занимаются взрослые</h2>
-          <p class="section-desc">Взрослые треки идут не последовательно, а параллельно — в разных частях зала. А параллельно с ними работает чайная зона и свободное общение, поэтому можно включиться в тему или просто отдыхать за чаем.</p>
+          <span class="section-tag">Итого 3 зоны • 1 трек в день</span>
+          <h2 class="section-title">Три зоны пространства & Ротация треков</h2>
+          <p class="section-desc">
+            Взрослые треки сменяют друг друга по очереди — <strong>один трек в день</strong>. Параллельно весь вечер работают свободная зона с чаем и детская мастерская.
+          </p>
+        </div>
+
+        <!-- 3 Зоны Пространства (Обзор) -->
+        <div class="zones-overview-grid reveal">
+          <!-- Зона 1 -->
+          <div class="zone-box active-track-zone">
+            <div class="zone-badge-num" style="background: rgba(224, 90, 58, 0.15); color: var(--color-terracotta);">
+              Зона 01 • Трек дня
+            </div>
+            <h3 style="font-size: 1.15rem; margin: 0; color: var(--text-main);">Взрослый трек дня</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0; line-height: 1.5;">
+              Один трек в день по расписанию. Темы сменяют друг друга по очереди: театр, кулинария, IT, отдых, выставки, фриланс, отцы.
+            </p>
+            <div style="font-size: 0.8rem; font-weight: 700; color: var(--color-terracotta); margin-top: auto;">
+              🔄 Каждый вечер новая глубокая тема
+            </div>
+          </div>
+
+          <!-- Зона 2 -->
+          <div class="zone-box active-free-zone">
+            <div class="zone-badge-num" style="background: rgba(217, 119, 6, 0.15); color: var(--color-ochre);">
+              Зона 02 • Свободная зона
+            </div>
+            <h3 style="font-size: 1.15rem; margin: 0; color: var(--text-main);">Чай & Свободное общение</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0; line-height: 1.5;">
+              Работает параллельно нон-стоп! Спешелти-чай, кофе, настолки, нетворкинг и коворкинг. Можно чиллить в наушниках или свободно общаться.
+            </p>
+            <div style="font-size: 0.8rem; font-weight: 700; color: var(--color-ochre); margin-top: auto;">
+              ☕ Открыта параллельно весь вечер
+            </div>
+          </div>
+
+          <!-- Зона 3 -->
+          <div class="zone-box active-kids-zone">
+            <div class="zone-badge-num" style="background: rgba(5, 150, 105, 0.15); color: var(--color-green-light);">
+              Зона 03 • Детская зона
+            </div>
+            <h3 style="font-size: 1.15rem; margin: 0; color: var(--text-main);">Мастерская ремёсел & роботов</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0; line-height: 1.5;">
+              В 5 метрах от родителей под присмотром наставников. Робототехника, инженерный кружок, созидательный труд руками. Без смартфонов.
+            </p>
+            <div style="font-size: 0.8rem; font-weight: 700; color: var(--color-green-light); margin-top: auto;">
+              🤖 Дети заняты делом рядом
+            </div>
+          </div>
+        </div>
+
+        <!-- Лента ротации треков (1 трек в день по очереди) -->
+        <div class="rotation-schedule-strip reveal">
+          <div style="font-weight: 800; font-size: 0.82rem; color: var(--color-terracotta); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 6px;">
+            <span>🔄 Очередь треков дня (1 в день):</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 0.82rem;">
+            <span class="badge" style="background: rgba(255, 87, 51, 0.12); color: var(--color-terracotta);">1. Театр (классика)</span>
+            <span style="color: var(--text-dim);">➔</span>
+            <span class="badge" style="background: rgba(245, 158, 11, 0.12); color: var(--color-ochre);">2. Кулинария</span>
+            <span style="color: var(--text-dim);">➔</span>
+            <span class="badge" style="background: rgba(59, 130, 246, 0.12); color: #2563EB;">3. IT & Код</span>
+            <span style="color: var(--text-dim);">➔</span>
+            <span class="badge" style="background: rgba(5, 150, 105, 0.12); color: var(--color-green-light);">4. Спокойствие & Отдых</span>
+            <span style="color: var(--text-dim);">➔</span>
+            <span class="badge" style="background: rgba(168, 85, 247, 0.12); color: #9333EA;">5. Выставки</span>
+            <span style="color: var(--text-dim);">➔</span>
+            <span class="badge" style="background: rgba(245, 158, 11, 0.12); color: var(--color-ochre);">6. Своё дело</span>
+            <span style="color: var(--text-dim);">➔</span>
+            <span class="badge" style="background: rgba(99, 102, 241, 0.12); color: #6366F1;">7. Отцы</span>
+          </div>
+          <div style="margin-left: auto; font-size: 0.78rem; color: var(--text-muted);">
+            ⚡ <em>Параллельно всегда: чай & свободная зона</em>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 14px; text-align: center;">
+          <span class="track-expand-hint" style="background: rgba(224, 90, 58, 0.12); color: var(--color-terracotta); font-size: 0.85rem; padding: 6px 14px;">
+            👇 Нажми на карточку трека — раскрой активности и темы
+          </span>
         </div>
 
         <div class="tracks-grid reveal">
-          <!-- 1. Менталка & Ресурс -->
+          <!-- 1. Театральный клуб (современное прочтение классики) -->
           <div class="track-card expanded" tabindex="0" role="button" aria-expanded="true">
             <div class="track-header">
-              <div class="track-icon" style="background: var(--color-ochre-soft); color: var(--color-ochre);">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
-                  <path d="M12 6a3 3 0 0 0-3 3c0 2 3 5 3 5s3-3 3-5a3 3 0 0 0-3-3z"/>
-                </svg>
+              <div class="track-icon" style="background: rgba(255, 87, 51, 0.12); color: var(--color-terracotta);">
+                🎭
               </div>
               <div class="track-header-content">
                 <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-                  <h3 class="track-title">Менталка, границы & ресурс</h3>
-                  <span class="badge" style="font-size: 0.72rem; padding: 2px 8px; background: rgba(5, 150, 105, 0.1); color: var(--color-green-light);">ведут психологи & опытные родители</span>
+                  <h3 class="track-title">Театральный клуб: классика в новом прочтении</h3>
+                  <span class="badge" style="font-size: 0.72rem; padding: 2px 8px; background: rgba(255, 87, 51, 0.12); color: var(--color-terracotta);">Иммерсивный театр народов</span>
                 </div>
-                <p class="track-summary">Выдохнуть, снять маску «идеального родителя» и восстановить ресурс</p>
+                <p class="track-summary">Читки, импровизация и классические сюжеты на понятном зумерам языке</p>
+                <span class="track-expand-hint">Свернуть блок ▲</span>
               </div>
               <div class="track-toggle-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
@@ -2294,28 +2518,134 @@
             </div>
             <div class="track-details">
               <ul class="track-list">
-                <li class="track-list-item">Избавляемся от родительской тревожности и чувства вины</li>
-                <li class="track-list-item">Экологичные границы со старшими («а вот в наше время...»)</li>
-                <li class="track-list-item">Личное время, хобби, тело и возвращение к собственному «Я»</li>
+                <li class="track-list-item"><strong>Читки и перформансы:</strong> живое переосмысление классики без нафталина</li>
+                <li class="track-list-item"><strong>Импровизация & голос:</strong> снятие зажимов и раскрепощение с артистами театра</li>
+                <li class="track-list-item"><strong>Совместные этюды:</strong> лёгкий вход для любого уровня подготовки</li>
               </ul>
             </div>
           </div>
 
-          <!-- 2. Своё дело & Финансы -->
+          <!-- 2. Совместная кулинария -->
           <div class="track-card" tabindex="0" role="button" aria-expanded="false">
             <div class="track-header">
-              <div class="track-icon">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 7 13.5 15.5 8.5 10.5 2 17"/>
-                  <polyline points="16 7 22 7 22 13"/>
-                </svg>
+              <div class="track-icon" style="background: rgba(245, 158, 11, 0.12); color: var(--color-ochre);">
+                🍳
+              </div>
+              <div class="track-header-content">
+                <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                  <h3 class="track-title">Совместная кулинария & вкусы</h3>
+                  <span class="badge" style="font-size: 0.72rem; padding: 2px 8px; background: rgba(245, 158, 11, 0.12); color: var(--color-ochre);">Кулинарный трек</span>
+                </div>
+                <p class="track-summary">Готовим вместе блюда предков на современный лад и пьём чай</p>
+                <span class="track-expand-hint">Раскрой блок 👇</span>
+              </div>
+              <div class="track-toggle-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+            <div class="track-details">
+              <ul class="track-list">
+                <li class="track-list-item"><strong>Готовим вместе:</strong> стритфуд, традиционные выпечки и закуски</li>
+                <li class="track-list-item"><strong>Чайная церемония:</strong> травяные сборы коренных народов и спешелти-чай</li>
+                <li class="track-list-item"><strong>Разговоры за столом:</strong> объединяющий ужин без смартфонов</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 3. Совместные IT-проекты -->
+          <div class="track-card" tabindex="0" role="button" aria-expanded="false">
+            <div class="track-header">
+              <div class="track-icon" style="background: rgba(59, 130, 246, 0.12); color: #2563EB;">
+                💻
+              </div>
+              <div class="track-header-content">
+                <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                  <h3 class="track-title">Совместные IT-проекты & pet-проекты</h3>
+                  <span class="badge" style="font-size: 0.72rem; padding: 2px 8px; background: rgba(59, 130, 246, 0.12); color: #2563EB;">IT & Фаундеры</span>
+                </div>
+                <p class="track-summary">Код, AI-инструменты, дизайн и поиск кофаундеров в коворкинге</p>
+                <span class="track-expand-hint">Раскрой блок 👇</span>
+              </div>
+              <div class="track-toggle-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+            <div class="track-details">
+              <ul class="track-list">
+                <li class="track-list-item"><strong>Пилим pet-проекты:</strong> сервисы, боты, мобилки вместе с разработчиками</li>
+                <li class="track-list-item"><strong>AI & дизайн:</strong> обмен опытом по нейросетям, UI/UX и no-code</li>
+                <li class="track-list-item"><strong>Поиск единомышленников:</strong> собрать команду под идею за чашкой чая</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 4. Совместные выставки & арт -->
+          <div class="track-card" tabindex="0" role="button" aria-expanded="false">
+            <div class="track-header">
+              <div class="track-icon" style="background: rgba(168, 85, 247, 0.12); color: #9333EA;">
+                🖼️
+              </div>
+              <div class="track-header-content">
+                <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                  <h3 class="track-title">Совместные выставки & арт-кураторство</h3>
+                  <span class="badge" style="font-size: 0.72rem; padding: 2px 8px; background: rgba(168, 85, 247, 0.12); color: #9333EA;">Арт & Выставки</span>
+                </div>
+                <p class="track-summary">Создаём экспозиции, фотопроекты и выставляем работы в пространстве</p>
+                <span class="track-expand-hint">Раскрой блок 👇</span>
+              </div>
+              <div class="track-toggle-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+            <div class="track-details">
+              <ul class="track-list">
+                <li class="track-list-item"><strong>Арт-коллаборации:</strong> фото, современная графика и традиционный крафт</li>
+                <li class="track-list-item"><strong>Общие выставки:</strong> выставляем работы взрослых и детской мастерской</li>
+                <li class="track-list-item"><strong>Районные вернисажи:</strong> презентация результатов для друзей и гостей</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 5. Спокойствие & отдых (вместо менталки) -->
+          <div class="track-card" tabindex="0" role="button" aria-expanded="false">
+            <div class="track-header">
+              <div class="track-icon" style="background: rgba(5, 150, 105, 0.12); color: var(--color-green-light);">
+                🧘
+              </div>
+              <div class="track-header-content">
+                <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                  <h3 class="track-title">Спокойствие & отдых</h3>
+                  <span class="badge" style="font-size: 0.72rem; padding: 2px 8px; background: rgba(5, 150, 105, 0.12); color: var(--color-green-light);">Психологи & родители</span>
+                </div>
+                <p class="track-summary">Выдохнуть, снять родительскую вину и выстроить границы со старшими</p>
+                <span class="track-expand-hint">Раскрой блок 👇</span>
+              </div>
+              <div class="track-toggle-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+            <div class="track-details">
+              <ul class="track-list">
+                <li class="track-list-item"><strong>Стоп тревога:</strong> убираем страх «я плохой родитель»</li>
+                <li class="track-list-item"><strong>Границы:</strong> экологичный ответ непрошеным советам старших</li>
+                <li class="track-list-item"><strong>Перезагрузка:</strong> законное право на личное время и хобби</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 6. Своё дело, фриланс & бюджет -->
+          <div class="track-card" tabindex="0" role="button" aria-expanded="false">
+            <div class="track-header">
+              <div class="track-icon" style="background: rgba(245, 158, 11, 0.12); color: var(--color-ochre);">
+                💼
               </div>
               <div class="track-header-content">
                 <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
                   <h3 class="track-title">Своё дело, фриланс & бюджет</h3>
-                  <span class="badge" style="font-size: 0.72rem; padding: 2px 8px; background: rgba(245, 158, 11, 0.1); color: var(--color-ochre);">ведут предприниматели</span>
+                  <span class="badge" style="font-size: 0.72rem; padding: 2px 8px; background: rgba(245, 158, 11, 0.12); color: var(--color-ochre);">Предприниматели</span>
                 </div>
-                <p class="track-summary">Удалёнка, pet-проекты без выгорания и семейные деньги без ссор</p>
+                <p class="track-summary">Удалёнка с детьми на руках и семейные финансы без ссор</p>
+                <span class="track-expand-hint">Раскрой блок 👇</span>
               </div>
               <div class="track-toggle-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
@@ -2323,28 +2653,26 @@
             </div>
             <div class="track-details">
               <ul class="track-list">
-                <li class="track-list-item">Запуск своего дела, самозанятость и удалённая работа с детьми</li>
-                <li class="track-list-item">Семейный бюджет, подушка безопасности и личные накопления</li>
-                <li class="track-list-item">Mastermind-сессии: взаимный саппорт идей без критики и токсичности</li>
+                <li class="track-list-item"><strong>Фриланс с детьми:</strong> как совмещать работу и семью без выгорания</li>
+                <li class="track-list-item"><strong>Семейный бюджет:</strong> подушка безопасности и прозрачные деньги</li>
+                <li class="track-list-item"><strong>Мастермайнды:</strong> поддержка бизнес-идей без критики</li>
               </ul>
             </div>
           </div>
 
-          <!-- 3. Отцы новой волны -->
+          <!-- 7. Отцы новой волны -->
           <div class="track-card" tabindex="0" role="button" aria-expanded="false">
             <div class="track-header">
-              <div class="track-icon" style="background: var(--color-green-soft); color: var(--color-green-light);">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
-                  <path d="m9 12 2 2 4-4"/>
-                </svg>
+              <div class="track-icon" style="background: rgba(99, 102, 241, 0.12); color: #6366F1;">
+                👨‍👧
               </div>
               <div class="track-header-content">
                 <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
                   <h3 class="track-title">Отцы новой волны</h3>
-                  <span class="badge" style="font-size: 0.72rem; padding: 2px 8px; background: rgba(99, 102, 241, 0.1); color: #6366F1;">ведут опытные отцы & психологи</span>
+                  <span class="badge" style="font-size: 0.72rem; padding: 2px 8px; background: rgba(99, 102, 241, 0.12); color: #6366F1;">Клуб отцов</span>
                 </div>
-                <p class="track-summary">Честный мужской диалог: вовлечённое отцовство без поучений и патриархальных штампов</p>
+                <p class="track-summary">Вовлечённое отцовство и баланс с работой без патриархальных штампов</p>
+                <span class="track-expand-hint">Раскрой блок 👇</span>
               </div>
               <div class="track-toggle-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
@@ -2352,29 +2680,26 @@
             </div>
             <div class="track-details">
               <ul class="track-list">
-                <li class="track-list-item">Баланс карьеры, дохода и качественного времени с ребёнком</li>
-                <li class="track-list-item">Партнёрство в отношениях: делим быт и уход пополам без драмы</li>
-                <li class="track-list-item">Мужской круг поддержки среди таких же молодых отцов</li>
+                <li class="track-list-item"><strong>Карьера и дети:</strong> реальный баланс времени без жертв</li>
+                <li class="track-list-item"><strong>Партнёрство:</strong> делим быт пополам без обид и упрёков</li>
+                <li class="track-list-item"><strong>Мужской круг:</strong> честный диалог со своими ровесниками</li>
               </ul>
             </div>
           </div>
 
-          <!-- 4. Коворкинг, настолки & чай -->
-          <div class="track-card" tabindex="0" role="button" aria-expanded="false">
+          <!-- 8. Свободная зона: Чайная станция, настолки & чилл -->
+          <div class="track-card" tabindex="0" role="button" aria-expanded="false" style="border-color: rgba(217, 119, 6, 0.4); background: linear-gradient(180deg, rgba(217, 119, 6, 0.04) 0%, var(--bg-card) 100%);">
             <div class="track-header">
-              <div class="track-icon" style="background: rgba(247, 243, 236, 0.1); color: var(--text-main);">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect width="20" height="14" x="2" y="3" rx="2"/>
-                  <line x1="8" x2="16" y1="21" y2="21"/>
-                  <line x1="12" x2="12" y1="17" y2="21"/>
-                </svg>
+              <div class="track-icon" style="background: rgba(217, 119, 6, 0.15); color: var(--color-ochre);">
+                ☕
               </div>
               <div class="track-header-content">
                 <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-                  <h3 class="track-title">Коворкинг, настолки & чай</h3>
-                  <span class="badge" style="font-size: 0.72rem; padding: 2px 8px; background: rgba(255, 87, 51, 0.1); color: var(--color-terracotta);">Иммерсивный театр народов России & волонтёры</span>
+                  <h3 class="track-title">Зона 02: Чайная станция & Свободный чилл</h3>
+                  <span class="badge" style="font-size: 0.72rem; padding: 2px 8px; background: rgba(217, 119, 6, 0.15); color: var(--color-ochre);">⚡ Параллельно каждый вечер</span>
                 </div>
-                <p class="track-summary">Тихий рабочий уголок с Wi-Fi, современные настолки и спешелти-чай</p>
+                <p class="track-summary">Спешелти-чай, настольные игры, нетворкинг и свобода побыть в наушниках</p>
+                <span class="track-expand-hint">Раскрой блок 👇</span>
               </div>
               <div class="track-toggle-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
@@ -2382,9 +2707,9 @@
             </div>
             <div class="track-details">
               <ul class="track-list">
-                <li class="track-list-item">Тихий рабочий уголок: фокусная работа за ноутбуком в комфорте</li>
-                <li class="track-list-item">Современные настольные игры и нетворкинг за общим столом</li>
-                <li class="track-list-item">Формат нулевого давления: можно прийти в наушниках и просто выдохнуть</li>
+                <li class="track-list-item"><strong>Чай нон-стоп:</strong> травяные сборы, фильтр-кофе, самовар и печенье</li>
+                <li class="track-list-item"><strong>Настолки & коворкинг:</strong> быстрые пати-геймы или тихий уголок с ноутбуком</li>
+                <li class="track-list-item"><strong>Свободный вход:</strong> если тема трека дня не откликается, можно просто отдыхать здесь</li>
               </ul>
             </div>
           </div>
@@ -2399,25 +2724,34 @@
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag" style="color: var(--color-green-light);">Открытая детская мастерская</span>
-          <h2 class="section-title">Ремёсла, уроки труда & Иммерсивный театр народов России</h2>
+          <h2 class="section-title">Ремёсла, робототехника & театр народов</h2>
           <p class="section-desc">
-            Разделение по зонам: дети переходят в открытую мастерскую ремёсел и созидательного ручного труда под присмотром семейных наставников Иммерсивного театра народов России. Без планшетов и мультиков, в 5 метрах от родителей.
+            Дети в 5 метрах от родителей под присмотром семейных наставников. Увлечены живым делом вместо того, чтобы сидеть в смартфонах.
           </p>
         </div>
 
         <div class="kids-grid reveal">
-          <!-- 1. Уроки прикладного труда руками -->
+          <!-- 1. Прикладная робототехника & Инженерный кружок -->
+          <div class="craft-card">
+            <div class="craft-icon-wrap" style="background: rgba(59, 130, 246, 0.15); color: #2563EB;">
+              🤖
+            </div>
+            <h4 class="craft-name">Прикладная робототехника</h4>
+            <p class="craft-desc">Инженерный кружок: собираем простых роботов, механизмы, датчики и схемы своими руками. Основы логики и физики без смартфонов.</p>
+          </div>
+
+          <!-- 2. Уроки созидательного труда руками -->
           <div class="craft-card">
             <div class="craft-icon-wrap">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
               </svg>
             </div>
-            <h4 class="craft-name">Уроки созидательного труда руками</h4>
-            <p class="craft-desc">Сборка деревянных эко-кормушек и скворечников из готовых деталей, завязывание морских и походных узлов, мелкий полезный бытовой труд и работа с безопасным эко-конструктором.</p>
+            <h4 class="craft-name">Уроки прикладного труда</h4>
+            <p class="craft-desc">Сборка деревянных эко-кормушек и скворечников, походные узлы, мелкий бытовой труд и практические навыки для жизни.</p>
           </div>
 
-          <!-- 2. Глина & Гончарное дело -->
+          <!-- 3. Глина & Гончарное дело -->
           <div class="craft-card">
             <div class="craft-icon-wrap">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2425,10 +2759,10 @@
               </svg>
             </div>
             <h4 class="craft-name">Глина & керамика</h4>
-            <p class="craft-desc">Лепка звонких народных свистулек, оберегов, фигурок и мини-посуды из натуральной глины. Сенсорика, тактильный контакт и мелкая моторика.</p>
+            <p class="craft-desc">Лепка звонких народных свистулек, тарелочек и оберегов из натуральной глины. Тактильная моторика и сенсорика.</p>
           </div>
 
-          <!-- 3. Дерево & роспись -->
+          <!-- 4. Береста & спилы -->
           <div class="craft-card">
             <div class="craft-icon-wrap">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2437,11 +2771,11 @@
                 <path d="M10 16v6h4v-6"/>
               </svg>
             </div>
-            <h4 class="craft-name">Береста, спилы & роспись</h4>
-            <p class="craft-desc">Шлифовка ароматных древесных спилов, эко-аппликации из мягкой бересты и роспись традиционными орнаментами безопасными природными красками.</p>
+            <h4 class="craft-name">Береста & спилы дерева</h4>
+            <p class="craft-desc">Шлифовка ароматных спилов, аппликации из мягкой бересты и роспись орнаментами безопасными эко-красками.</p>
           </div>
 
-          <!-- 4. Ткачество & бытовой труд -->
+          <!-- 5. Ткачество & шнуры -->
           <div class="craft-card">
             <div class="craft-icon-wrap">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2453,11 +2787,11 @@
                 <line x1="18" y1="3" x2="18" y2="21"/>
               </svg>
             </div>
-            <h4 class="craft-name">Ткачество & прикладной труд</h4>
-            <p class="craft-desc">Плетение поясов и шнурков на ткацких дощечках, традиционные куклы-обереги и базовые жизненные навыки: пришить пуговицу, плести шнур.</p>
+            <h4 class="craft-name">Ткачество & ремёсла</h4>
+            <p class="craft-desc">Плетение поясов и браслетов на дощечках, традиционные обереги и умение пришить пуговицу своими руками.</p>
           </div>
 
-          <!-- 5. Театр сказок народов России -->
+          <!-- 6. Иммерсивный театр сказок -->
           <div class="craft-card">
             <div class="craft-icon-wrap">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2467,19 +2801,7 @@
               </svg>
             </div>
             <h4 class="craft-name">Иммерсивный театр сказок</h4>
-            <p class="craft-desc">Оживление легенд и мудрости коренных народов России: теневой и перчаточный театр, звукоподражание на народных свирелях и варганах.</p>
-          </div>
-
-          <!-- 6. Культура созидательного труда -->
-          <div class="craft-card">
-            <div class="craft-icon-wrap">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
-                <circle cx="12" cy="11" r="3"/>
-              </svg>
-            </div>
-            <h4 class="craft-name">Культурный код: труд руками</h4>
-            <p class="craft-desc">Воспитание через уважение и созидательный труд руками: семейные ценности взаимной заботы, бережное отношение к вещам и гордость за результат.</p>
+            <p class="craft-desc">Сказки коренных народов России от артистов театра: теневой театр, звукоподражание на народных свирелях и варганах.</p>
           </div>
         </div>
 
@@ -2488,15 +2810,15 @@
           <div>
             <span class="kids-banner-badge">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-              Осязаемый результат
+              Гордость за труд
             </span>
-            <h3 style="font-size: 1.35rem; margin-top: 10px;">Раз в месяц — открытая выставка поделок, кормушек и театральный мини-показ</h3>
+            <h3 style="font-size: 1.35rem; margin-top: 10px;">Раз в месяц — совместная выставка роботов, поделок и театр</h3>
             <p style="opacity: 0.9; font-size: 0.95rem; max-width: 620px; margin-top: 4px;">
-              Дети показывают родителям готовые скворечники, вылепленные свистульки и плетёные пояса: гордость за свой труд и аплодисменты семьи.
+              Дети показывают родителям собранных роботов, скворечники и глиняные свистульки. Гордость за свой труд вместо смартфона.
             </p>
           </div>
           <a href="#cta" class="btn" style="background: #FFFFFF; color: var(--color-green); font-weight: 800; align-self: flex-start;">
-            Привести ребёнка
+            Прийти с ребёнком
           </a>
         </div>
       </div>
@@ -2605,8 +2927,8 @@
               </svg>
             </div>
             <div class="timeline-time" style="color: var(--color-terracotta);">18:15 – 19:45</div>
-            <h4 class="timeline-card-title">Параллельные треки & Чай</h4>
-            <p class="timeline-card-desc">Взрослые треки идут параллельно в разных зонах зала. А параллельно с ними работает чайная станция и свободное общение.</p>
+            <h4 class="timeline-card-title">3 зоны: Трек дня • Чай • Дети</h4>
+            <p class="timeline-card-desc">Взрослый трек дня по очереди. Параллельно всё время работает свободная чайная зона, а рядом в мастерской увлечены дети.</p>
           </div>
 
           <!-- 19:45–20:00 -->
@@ -2624,9 +2946,9 @@
         </div>
 
         <div class="reveal" style="margin-top: 24px; padding: 16px 20px; background: var(--bg-card); border: 1px dashed var(--border-color); border-radius: var(--radius-md); display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
-          <span style="font-size: 1.3rem;">☕</span>
+          <span style="font-size: 1.3rem;">📍</span>
           <p style="margin: 0; font-size: 0.92rem; color: var(--text-muted); line-height: 1.5;">
-            <strong>Формат свободного потока:</strong> взрослые треки не сменяют друг друга по очереди — они идут одновременно в разных углах зала. А в центре всегда доступны чай, коворкинг и настолки. Можно свободно перемещаться между зонами без регламентов и духоты.
+            <strong>Итого 3 зоны зала:</strong> 1) Зона трека — один взрослый трек в день, треки сменяют друг друга по очереди. 2) Свободная зона — параллельно чай, фильтр-кофе, настолки и нетворкинг нон-стоп. 3) Детская зона — робототехника и ремёсла руками в 5 метрах от родителей.
           </p>
         </div>
       </div>
@@ -2663,11 +2985,11 @@
           <div class="vibe-main-info">
             <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
               <span class="sticker-tag" id="vibeTag">Сценарий: Перезагрузка</span>
-              <span class="badge" id="vibeRecommendedTrack">Трек: Менталка & Ресурс</span>
+              <span class="badge" id="vibeRecommendedTrack">Трек: Спокойствие & отдых</span>
             </div>
-            <h3 id="vibeTitle" style="font-size: 1.5rem; margin-bottom: 10px;">Два часа, чтобы вспомнить: я — это я</h3>
+            <h3 id="vibeTitle" style="font-size: 1.5rem; margin-bottom: 10px;">2 часа выдохнуть и побыть собой</h3>
             <p id="vibeDesc" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
-              Здесь ты выдыхаешь, пьёшь горячий чай пока он ещё горячий, и говоришь на взрослые темы, пока ребёнок увлечён рядом.
+              Пьёшь горячий спешелти-чай, общаешься со своими или слушаешь трек дня, пока ребёнок увлечён рядом.
             </p>
             <ul id="vibeSteps" class="vibe-step-list">
               <li class="vibe-step-item">
@@ -2676,26 +2998,26 @@
               </li>
               <li class="vibe-step-item">
                 <span class="vibe-step-num">2</span>
-                <span><strong>18:15</strong> — Малыш увлечённо лепит свистульку из глины с мастером.</span>
+                <span><strong>18:15</strong> — Ребёнок увлечён робототехникой или глиной с наставником.</span>
               </li>
               <li class="vibe-step-item">
                 <span class="vibe-step-num">3</span>
-                <span><strong>18:20–19:45</strong> — В кругу ровесников обсуждаем границы, самооценку и проекты.</span>
+                <span><strong>18:20–19:45</strong> — Включаешься в трек дня или чиллишь в свободной зоне с чаем.</span>
               </li>
               <li class="vibe-step-item">
                 <span class="vibe-step-num">4</span>
-                <span><strong>20:00</strong> — Забираешь гордого ребёнка с поделкой и идёте домой наполненными.</span>
+                <span><strong>20:00</strong> — Забираешь довольного ребёнка с поделкой и идёте домой.</span>
               </li>
             </ul>
           </div>
 
           <div class="vibe-highlight-card">
             <div style="font-size: 0.85rem; text-transform: uppercase; font-weight: 800; color: var(--color-terracotta); letter-spacing: 0.05em; margin-bottom: 6px;">
-              ✨ Профит для менталки
+              ✨ Спокойствие & перезагрузка
             </div>
             <h4 id="vibeBenefitTitle" style="font-size: 1.15rem; margin-bottom: 8px;">Минус 90% тревожности за вечер</h4>
             <p id="vibeBenefitDesc" style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 16px;">
-              Ребёнок находится рядом в открытой мастерской: ты видишь его, не дёргаешься и не чувствуешь вины, а голова отдыхает.
+              Ребёнок рядом в мастерской: ты видишь его, голова отдыхает от дел, а вечер проходит в кайф.
             </p>
             <a href="#cta" class="btn btn-primary" style="width: 100%; font-size: 0.9rem; padding: 12px 20px;">
               Забронировать этот сценарий
@@ -2922,23 +3244,39 @@
 
               <!-- Чекбоксы выбора треков -->
               <div class="form-group full-width">
-                <label class="form-label">Какой трек откликается больше всего? (можно выбрать несколько)</label>
+                <label class="form-label">Какой трек откликается больше всего? (можно несколько)</label>
                 <div class="tracks-checkbox-group">
                   <label class="checkbox-label">
-                    <input type="checkbox" name="track" value="Своё дело, фриланс & бабки">
-                    <span>Своё дело, фриланс & бабки</span>
+                    <input type="checkbox" name="track" value="Театральный клуб: классика">
+                    <span>Театральный клуб (классика)</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="track" value="Совместная кулинария">
+                    <span>Совместная кулинария</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="track" value="Совместные IT-проекты">
+                    <span>Совместные IT-проекты</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="track" value="Совместные выставки">
+                    <span>Совместные выставки</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="track" value="Спокойствие & отдых">
+                    <span>Спокойствие & отдых</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="track" value="Своё дело & фриланс">
+                    <span>Своё дело & фриланс</span>
                   </label>
                   <label class="checkbox-label">
                     <input type="checkbox" name="track" value="Отцы новой волны">
                     <span>Отцы новой волны</span>
                   </label>
                   <label class="checkbox-label">
-                    <input type="checkbox" name="track" value="Менталка, границы & ресурс">
-                    <span>Менталка, границы & ресурс</span>
-                  </label>
-                  <label class="checkbox-label">
-                    <input type="checkbox" name="track" value="Коворкинг, настолки & чай">
-                    <span>Коворкинг, настолки & чай</span>
+                    <input type="checkbox" name="track" value="Чайная зона & настолки">
+                    <span>Чайная зона & настолки</span>
                   </label>
                 </div>
               </div>
@@ -2972,14 +3310,14 @@
     </section>
 
     <!-- ==========================================================================
-         11. FAQ (АККОРДЕОН, 6 ВОПРОСОВ)
+         11. FAQ (АККОРДЕОН, КРАТКО И ПО СУТИ ДЛЯ ЗУМЕРОВ)
          ========================================================================== -->
     <section id="faq">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">База знаний</span>
           <h2 class="section-title">Часто задаваемые вопросы</h2>
-          <p class="section-desc">Честные ответы на всё, о чём обычно спрашивают перед первым визитом во «Взрослые».</p>
+          <p class="section-desc">Коротко и без воды обо всём важном.</p>
         </div>
 
         <div class="faq-list reveal">
@@ -2992,72 +3330,72 @@
               </div>
             </button>
             <div class="faq-answer">
-              <p>У коренных народов России семейные ценности, преемственность поколений, взаимная опора и воспитание детей в общем кругу исторически стоят во главе угла. <strong>Культурный код проекта: воспитание через уважение и созидательный труд руками.</strong> Иммерсивный театр народов России сохраняет эти традиции и транслирует их на современном языке для молодёжи 18–35 лет: без нравоучений, через совместный ручной труд, сказки, ремёсла и живое семейное общение.</p>
+              <p>Театр переосмысляет традиционные ценности взаимопомощи и созидательного труда на современный лад. Культурный код — уважение, работа руками и крепкая семья без назиданий.</p>
             </div>
           </div>
 
           <!-- 2. Пример площадки Молодёжь Москвы -->
           <div class="faq-item">
             <button class="faq-question-btn" aria-expanded="false">
-              <span>Какое пространство приводится в пример (почему «Молодёжь Москвы»)?</span>
+              <span>Почему приводится в пример «Молодёжь Москвы»?</span>
               <div class="faq-chevron">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
               </div>
             </button>
             <div class="faq-answer">
-              <p>В качестве эталонной модели пространства мы ориентируемся на современные центры <strong>«Молодёжь Москвы»</strong>. Это открытая, стильная городская инфраструктура с разделением по зонам: просторный коворкинг с быстрым Wi-Fi, лаундж с чаем и настолками, а также удобные столы для прикладного ручного труда и ремёсел. В таком пространстве взрослые и дети находятся в едином поле комфорта.</p>
+              <p>Это ориентир открытой и комфортной городской площадки: разделение на тихий коворкинг, чайную зону и мастерские без бюрократии.</p>
             </div>
           </div>
 
           <!-- 3. Кто ведёт встречи -->
           <div class="faq-item">
             <button class="faq-question-btn" aria-expanded="false">
-              <span>Кто именно ведёт встречи для взрослых и сопровождает детей?</span>
+              <span>Кто наставники и ведущие?</span>
               <div class="faq-chevron">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
               </div>
             </button>
             <div class="faq-answer">
-              <p><strong>Наставники: Семейные.</strong> Встречи ведут эксперты-практики: <strong>семейные наставники Иммерсивного театра народов России</strong> (традиции, мастерская и чайный круг), <strong>педагоги и психологи</strong> (снятие родительской тревожности и личные границы), <strong>действующие предприниматели</strong> (фриланс, пет-проекты и семейный бюджет), а также <strong>опытные родители</strong> с реальным стажем воспитания детей, готовые делиться проверенными лайфхаками без снобизма.</p>
+              <p>Семейные наставники театра народов, практикующие психологи, IT-предприниматели и опытные родители. Без белых пальто и духоты.</p>
             </div>
           </div>
 
-          <!-- 4. Уроки труда -->
+          <!-- 4. Робототехника и ремёсла -->
           <div class="faq-item">
             <button class="faq-question-btn" aria-expanded="false">
-              <span>Что входит в детские уроки труда и ремёсла?</span>
+              <span>Чем занимаются дети в мастерской?</span>
               <div class="faq-chevron">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
               </div>
             </button>
             <div class="faq-answer">
-              <p>Это не просто пассивное творчество, а настоящие уроки созидательного труда руками: лепка звонких свистулек и мини-посуды из натуральной глины, ткачество поясов на дощечках, аппликации из бересты, сборка деревянных эко-кормушек и скворечников из заготовок, а также полезные жизненные навыки (пришить пуговицу, связать надёжный узел, бережное отношение к вещам). Без планшетов и экранов гаджетов.</p>
+              <p>Прикладная робототехника, инженерный кружок, гончарное дело, резьба по дереву и театр сказок. Труд руками вместо зависания в смартфонах.</p>
             </div>
           </div>
 
           <!-- 5. Соло / Без детей -->
           <div class="faq-item">
             <button class="faq-question-btn" aria-expanded="false">
-              <span>Можно ли прийти соло или если у меня ещё нет семьи и детей?</span>
+              <span>Можно прийти соло или если нет детей?</span>
               <div class="faq-chevron">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
               </div>
             </button>
             <div class="faq-answer">
-              <p>Да, обязательно! «Взрослые» созданы для всей молодёжи 18–35 лет. Если у тебя пока нет пары или детей, но ты мечтаешь о крепкой семье, хочешь познакомиться с осознанными людьми со схожими ценностями или просто поработать в коворкинге и поиграть в настолки — приходи соло. Здесь всегда рады новым людям.</p>
+              <p>Да! Пространство открыто для всех 18–35 лет. Приходи знакомиться, пить чай, работать или участвовать в IT-проектах и театре.</p>
             </div>
           </div>
 
           <!-- 6. Бесплатно -->
           <div class="faq-item">
             <button class="faq-question-btn" aria-expanded="false">
-              <span>Это правда 100% бесплатно? В чём подвох?</span>
+              <span>Это правда бесплатно?</span>
               <div class="faq-chevron">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
               </div>
             </button>
             <div class="faq-answer">
-              <p>Никаких скрытых платежей или продаж курсов. Проект реализуется Театром народов России на базе открытых молодёжных центров (по модели «Молодёжь Москвы»). Все материалы для труда, чайная станция и работа наставников полностью бесплатны для участников.</p>
+              <p>Да, 100% бесплатно. Чай, материалы мастерской и участие в треках финансируются в рамках молодёжной программы.</p>
             </div>
           </div>
         </div>
@@ -3211,59 +3549,59 @@
       const vibeData = {
         parent: {
           tag: 'Сценарий: Перезагрузка',
-          track: 'Трек: Менталка & Ресурс',
-          title: 'Два часа, чтобы вспомнить: я — это я',
-          desc: 'Когда целыми днями слышишь только детские песенки и решаешь бытовые квесты, легко забыть о собственных интересах. Здесь ты выдыхаешь, пьёшь горячий чай пока он ещё горячий, и говоришь на взрослые темы.',
+          track: 'Трек дня: Спокойствие & отдых',
+          title: '2 часа выдохнуть и побыть собой',
+          desc: 'Пьёшь горячий спешелти-чай, общаешься со своими или слушаешь трек дня, пока ребёнок увлечён рядом.',
           steps: [
-            '<strong>18:00</strong> — Заходишь, сбрасываешь куртку, наливаешь травяной чай с мятой и имбирём.',
-            '<strong>18:15</strong> — Малыш увлечённо лепит свистульку из глины с семейным наставником Иммерсивного театра народов России.',
-            '<strong>18:20–19:45</strong> — В кругу ровесников обсуждаем границы со старшими, самооценку и личные проекты.',
-            '<strong>20:00</strong> — Забираешь гордого ребёнка с поделкой. Домой возвращаетесь спокойными и наполненными.'
+            '<strong>18:00</strong> — Заходишь, сбрасываешь куртку, наливаешь травяной чай.',
+            '<strong>18:15</strong> — Ребёнок увлечён робототехникой или глиной с наставником.',
+            '<strong>18:20–19:45</strong> — Включаешься в трек дня или чиллишь в свободной зоне с чаем.',
+            '<strong>20:00</strong> — Забираешь довольного ребёнка с поделкой и идёте домой.'
           ],
           benefitTitle: 'Минус 90% тревожности за вечер',
-          benefitDesc: 'Ребёнок находится рядом в открытой мастерской: ты видишь его, не дёргаешься и не чувствуешь вины, а голова отдыхает от бесконечного чек-листа дел.'
+          benefitDesc: 'Ребёнок рядом в мастерской: ты видишь его, голова отдыхает от дел, а вечер проходит в кайф.'
         },
         couple: {
           tag: 'Сценарий: Вайбовый вечер вдвоём',
-          track: 'Трек: Коворкинг, настолки & чай',
-          title: 'Провести качественный вечер вместе и найти своих людей',
-          desc: 'Смена обстановки для пар, которые только съехались или строят совместные планы. Никакой неловкости: уютные диваны, настолки на сообразительность, интересные разговоры и спешелти-чай.',
+          track: 'Свободная зона: Чай, настолки & чилл',
+          title: 'Качественный вечер вместе и новые знакомства',
+          desc: 'Смена обстановки: уютные диваны, быстрые настолки, чайная станция и общение с ровесниками.',
           steps: [
-            '<strong>18:00</strong> — Приходите вдвоём, выбираете столик или мягкие пуфы в чайной зоне.',
-            '<strong>18:15</strong> — Знакомитесь с другими молодыми парами и ребятами города.',
-            '<strong>18:30–19:50</strong> — Разбираем прикольную настолку или обсуждаем лайфхаки съёмного жилья и путешествий.',
-            '<strong>20:00</strong> — Уходите с новыми контактами в Telegram и ощущением тёплого, живого вечера.'
+            '<strong>18:00</strong> — Приходите вдвоём, выбираете пуфы в чайной зоне.',
+            '<strong>18:15</strong> — Знакомитесь с ребятами и молодыми парами города.',
+            '<strong>18:30–19:50</strong> — Играем в настолки, обсуждаем путешествия или слушаем трек дня.',
+            '<strong>20:00</strong> — Уходите с новыми контактами и зарядом тепла.'
           ],
           benefitTitle: 'Живые друзья вместо скролла ленты',
-          benefitDesc: 'Побег от домашней рутины сериалов. Возможность познакомиться с классными сверстниками со схожими ценностями.'
+          benefitDesc: 'Побег от рутины в тёплую компанию людей со схожими ценностями.'
         },
         freelance: {
           tag: 'Сценарий: Фокус & Продуктивность',
-          track: 'Трек: Своё дело & фриланс',
-          title: '2 часа чистой работы в тишине с розеткой и Wi-Fi',
-          desc: 'Знакома ситуация: нужно доделать проект, сдать курсовую или ответить клиентам, а дома ребёнок требует внимания 24/7? Во «Взрослых» ты получаешь тихое рабочее место, пока ребёнок занят творчеством.',
+          track: 'Свободная зона: Коворкинг & чай',
+          title: '2 часа чистой работы в тишине с Wi-Fi и розеткой',
+          desc: 'Тихое рабочее место для задач, пока ребёнок занят творчеством в мастерской в 5 метрах.',
           steps: [
-            '<strong>18:00</strong> — Подключаешь ноутбук к быстрому Wi-Fi и розетке, ставишь термос рядом.',
-            '<strong>18:10</strong> — Передаёшь ребёнка мастеру: сегодня они изучают ткачество и театр теней.',
-            '<strong>18:15–19:50</strong> — 1.5 часа режима глубокого фокуса (Deep Work) без прерываний.',
-            '<strong>20:00</strong> — Закрываешь все рабочие задачи. Дома вечер полностью свободен для отдыха!'
+            '<strong>18:00</strong> — Ноутбук к Wi-Fi и розетке, кружка фильтр-кофе рядом.',
+            '<strong>18:10</strong> — Ребёнок увлечён сборкой робота или скворечника с мастером.',
+            '<strong>18:15–19:50</strong> — 1.5 часа спокойного фокуса без отвлечений.',
+            '<strong>20:00</strong> — Закрыл задачи, дома вечер полностью свободен.'
           ],
-          benefitTitle: '100% концентрация без чувства вины',
-          benefitDesc: 'Ты не отмахиваешься от ребёнка — он занят крутым развивающим ремеслом с наставником, пока ты продуктивно закрываешь задачи.'
+          benefitTitle: '100% концентрация без вины',
+          benefitDesc: 'Ребёнок занят полезным делом с наставником, пока ты продуктивно закрываешь дела.'
         },
         dad: {
           tag: 'Сценарий: Мужской круг без пафоса',
-          track: 'Трек: Отцы новой волны',
-          title: 'Честный разговор о деньгах, отцовстве и балансе',
-          desc: 'Качественное время с ребёнком и мужское комьюнити без архаичных советов. Как обеспечивать семью, не сгорая на трёх работах, и быть реально включённым отцом.',
+          track: 'Трек дня: Отцы новой волны',
+          title: 'Честный разговор о балансе, работе и детях',
+          desc: 'Качественное время с ребёнком и мужское комьюнити ровесников без нравоучений.',
           steps: [
-            '<strong>18:00</strong> — Приходишь с ребёнком, знакомишься с наставником ремесленной зоны.',
-            '<strong>18:15</strong> — Сын или дочка с восторгом пилят безопасный деревянный кораблик.',
-            '<strong>18:20–19:45</strong> — За чаем обсуждаем карьеру, инвестиции, психологию воспитания и выгорание.',
-            '<strong>20:00</strong> — Совместно с ребёнком любуетесь готовой деревянной игрушкой. Ребёнок гордится папой.'
+            '<strong>18:00</strong> — Приходишь с ребёнком, знакомишься с ребятами.',
+            '<strong>18:15</strong> — Сын или дочка собирают робота или пилят деревянную игрушку.',
+            '<strong>18:20–19:45</strong> — За чаем говорим о карьере, проектах, воспитании и спорте.',
+            '<strong>20:00</strong> — Забираешь довольного ребёнка с готовой поделкой.'
           ],
           benefitTitle: 'Равный диалог без токсичности',
-          benefitDesc: 'Круг парней одного возраста, которые понимают вызовы молодого отца в 2026 году и поддерживают друг друга делом.'
+          benefitDesc: 'Круг ровесников, которые понимают вызовы молодого отца и поддержат делом.'
         }
       };
 
@@ -3307,21 +3645,29 @@
       // ------------------------------------------------------------------------
       const trackCards = document.querySelectorAll('.track-card');
 
+      const updateTrackHint = (card, expanded) => {
+        const hint = card.querySelector('.track-expand-hint');
+        if (hint) {
+          hint.textContent = expanded ? 'Свернуть блок ▲' : 'Раскрой блок 👇';
+        }
+      };
+
       trackCards.forEach(card => {
         card.addEventListener('click', () => {
           const isExpanded = card.classList.contains('expanded');
-          // Если кликаем по уже открытой карточке - закрываем её
           if (isExpanded) {
             card.classList.remove('expanded');
             card.setAttribute('aria-expanded', 'false');
+            updateTrackHint(card, false);
           } else {
-            // Закрываем другие карточки для опрятности
             trackCards.forEach(c => {
               c.classList.remove('expanded');
               c.setAttribute('aria-expanded', 'false');
+              updateTrackHint(c, false);
             });
             card.classList.add('expanded');
             card.setAttribute('aria-expanded', 'true');
+            updateTrackHint(card, true);
           }
         });
 
